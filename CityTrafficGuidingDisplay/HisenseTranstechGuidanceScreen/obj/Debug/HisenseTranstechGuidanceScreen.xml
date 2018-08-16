@@ -1,0 +1,336 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+HisenseTranstechGuidanceScreen
+</name>
+</assembly>
+<members>
+<member name="T:HisenseTranstechGuidanceScreen.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:HisenseTranstechGuidanceScreen.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:HisenseTranstechGuidanceScreen.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.LINKInfo">
+ <summary>
+ 光带信息
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.LINKInfo.id">
+ <summary>
+ 路段编号
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.LINKInfo.time">
+ <summary>
+ 发布时间
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.LINKInfo.color">
+ <summary>
+ 颜色
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo">
+ <summary>
+ 文字
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.Fontcolor">
+ <summary>
+ 字体颜色
+ </summary>
+</member>
+<member name="P:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.color">
+ <summary>
+ 字体颜色 1红 2黄 3绿
+ </summary>
+</member>
+<member name="P:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.size">
+ <summary>
+ 字体类型
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.style">
+ <summary>
+ 展示样式
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo._time">
+ <summary>
+ 发布时间
+ </summary>
+</member>
+<member name="P:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.time">
+ <summary>
+ 发布时间
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.FontFont">
+ <summary>
+ 字体
+ </summary>
+</member>
+<member name="P:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.font">
+ <summary>
+ 字体类型
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.TextInfo.Value">
+ <summary>
+ 文字内容
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.ImgInfo">
+ <summary>
+ 图片
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.ImgInfo.name">
+ <summary>
+ 图片名称
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.ImgInfo.url">
+ <summary>
+ 文件 URL
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.VideoInfo">
+ <summary>
+ 视频
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.VideoInfo.name">
+ <summary>
+ 视频名称
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.VideoInfo.url">
+ <summary>
+ 文件 URL
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.ITEMInfo">
+ <summary>
+ 节目信息
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.ITEMInfo.type">
+ <summary>
+ 节目类型
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.ITEMInfo.interval">
+ <summary>
+ 播放时间 (s)
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.ITEMInfo.text">
+ <summary>
+ 文字
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.ITEMInfo.img">
+ <summary>
+ 图片
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.ITEMInfo.video">
+ <summary>
+ 视频
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.CMDInfo">
+ <summary>
+ 屏幕控制
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.PARAInfo">
+ <summary>
+ 参数设置/回读
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.ECHOInfo">
+ <summary>
+ 回读
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.SCREENInfo">
+ <summary>
+ 管理对象
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.SCREENInfo.CMD">
+ <summary>
+ 屏幕控制
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.SCREENInfo.PARA">
+ <summary>
+ 单个内置参数
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.SCREENInfo.ECHO">
+ <summary>
+ 回读
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.VMSInfo">
+ <summary>
+ 设备信息
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.VMSInfo.id">
+ <summary>
+ 设备编号
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.VMSInfo.cmdid">
+ <summary>
+ 命令字
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.VMSInfo.LINKS">
+ <summary>
+ 光带列表
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.VMSInfo.ITEMS">
+ <summary>
+ 节目列表
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.VMSInfo.SCREEN">
+ <summary>
+ 管理对象
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.HTGS1_8.HiATMP">
+ <summary>
+ 报文
+ </summary>
+</member>
+<member name="P:HisenseTranstechGuidanceScreen.HTGS1_8.HiATMP.type">
+ <summary>
+ 类型
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.HTGS1_8.HiATMP.VMS">
+ <summary>
+ 设备列表
+ </summary>
+</member>
+<member name="M:HisenseTranstechGuidanceScreen.ModuleFunction.LoadSetting">
+ <summary>
+ 读取配置
+ </summary>
+</member>
+<member name="M:HisenseTranstechGuidanceScreen.ModuleFunction.SaveSetting">
+ <summary>
+ 保存配置
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.ModuleStructure.WindowInfo">
+ <summary>
+ 窗体信息
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.WindowInfo.Location">
+ <summary>
+ 位置
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.WindowInfo.Size">
+ <summary>
+ 大小
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.WindowInfo.TopFlage">
+ <summary>
+ 窗口置顶
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.ModuleStructure.MQServerInfo">
+ <summary>
+ MQ服务器信息
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.MQServerInfo.UserName">
+ <summary>
+ 用户名
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.MQServerInfo.Password">
+ <summary>
+ 密码
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.MQServerInfo.Url">
+ <summary>
+ 服务器地址
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.MQServerInfo.ReceiveTopicTitle">
+ <summary>
+ 接收信息组标题
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.MQServerInfo.SendTopicTitle">
+ <summary>
+ 发送信息组标题
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.MQServerInfo.ReceiveTimeOut">
+ <summary>
+ 接收最大等待时间 (s)
+ </summary>
+</member>
+<member name="T:HisenseTranstechGuidanceScreen.ModuleStructure.SystemInfo">
+ <summary>
+ 系统配置
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.SystemInfo.LinkFlage">
+ <summary>
+ 连接状态
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.SystemInfo.DeviceID">
+ <summary>
+ 设备编号
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.SystemInfo.WindInfo">
+ <summary>
+ 窗体信息
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleStructure.SystemInfo.MQSInfo">
+ <summary>
+ 服务器信息
+ </summary>
+</member>
+<member name="F:HisenseTranstechGuidanceScreen.ModuleVar.sysinfo">
+ <summary>
+ 系统配置变量
+ </summary>
+</member>
+<member name="M:HisenseTranstechGuidanceScreen.ModuleWorkThread.CommandWorkThread">
+ <summary>
+ 处理线程函数
+ </summary>
+</member>
+</members>
+</doc>
