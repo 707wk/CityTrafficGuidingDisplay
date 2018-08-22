@@ -1,0 +1,1775 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nova.Mars.SDK.MarsInterface</name>
+    </assembly>
+    <members>
+        <member name="T:Nova.Mars.SDK.LEDScreenInfo">
+            <summary>
+            显示屏信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.LEDScreenInfo.ScreenX">
+            <summary>
+            显示屏的水平位置
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.LEDScreenInfo.ScreenY">
+            <summary>
+            显示屏的垂直位置
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.LEDScreenInfo.VirtualMode">
+            <summary>
+            显示屏的虚拟模式
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.LEDScreenInfo.ScanBoardInfoList">
+            <summary>
+            显示屏中的接收卡信息列表
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.LEDScreenInfo.Clone">
+            <summary>
+            Clone屏体信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.LEDScreenInfo.CopyTo(System.Object)">
+            <summary>
+            拷贝屏体信息
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nova.Mars.SDK.ScanBoardMapRegion">
+            <summary>
+            扫描板映射区域
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScanBoardMapRegion.SenderIndex">
+            <summary>
+            所属发送卡序号
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScanBoardMapRegion.PortIndex">
+            <summary>
+            输出口序号
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScanBoardMapRegion.ConnectIndex">
+            <summary>
+            位于所在输出口的第几个
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScanBoardMapRegion.X">
+            <summary>
+            在屏上的位置X
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScanBoardMapRegion.Y">
+            <summary>
+            在屏上的位置Y
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScanBoardMapRegion.Width">
+            <summary>
+            带载像素宽度
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScanBoardMapRegion.Height">
+            <summary>
+            带载像素高度
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.ScanBoardMapRegion.Clone">
+            <summary>
+            Clone接收卡信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Nova.Mars.SDK.OperateResult">
+            <summary>
+            操作结果
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.OK">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.NotInit">
+            <summary>
+            未初始化
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.SBAddrDuplication">
+            <summary>
+            接收卡地址重复
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.CommunicateFailed">
+            <summary>
+            交互失败
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.ScreenHasNoSB">
+            <summary>
+            存在无接收卡的显示屏
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.DVIInfoError">
+            <summary>
+            DVI信息错误
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.ScreenLocationError">
+            <summary>
+            显示屏位置错误
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.SBLocationError">
+            <summary>
+            接收卡位置错误
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.LoadScreenConfigFileError">
+            <summary>
+            屏体文件加载错误
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.ConfigFileNameIsNone">
+            <summary>
+            配置文件不能为空
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.Sending">
+            <summary>
+            正在发送
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.NoScanBdInfo">
+            <summary>
+            至少需要一张接收卡的信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.SenderError">
+            <summary>
+            发送卡没有连接或发送卡故障
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.OperateResult.OutOfAange">
+            <summary>
+            发送卡的映射区域不在当前显示屏的范围
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.OperateResultEventHandler">
+            <summary>
+            操作结果的委托
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:Nova.Mars.SDK.OperateResultEventArgs">
+            <summary>
+            操作结果
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.OperateResultEventArgs.Result">
+            <summary>
+            获取结果
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.OperateResultEventArgs.SendCardAddr">
+            <summary>
+            发送卡的地址
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.GetMarsDisplayInfoResultEventHandler">
+            <summary>
+            获取控制卡分辨率的委托
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="T:Nova.Mars.SDK.GetMarsDisplayInfoResultEventArgs">
+            <summary>
+            获取控制卡分辨率的参数类
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.GetMarsDisplayInfoResultEventArgs.DisplayInfo">
+            <summary>
+            发送卡的显示信息
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.SenderDisplayValueInfo">
+            <summary>
+            控制系统显示信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.SenderDisplayValueInfo.SenderAddr">
+            <summary>
+            发送卡地址，若为0xFF，则为广播发送所有卡
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.SenderDisplayValueInfo.Refresh">
+            <summary>
+            刷新率
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.SenderDisplayValueInfo.Width">
+            <summary>
+            宽度
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.SenderDisplayValueInfo.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.SenderDisplayValueInfo.IsCustomPix">
+            <summary>
+            自定义像素
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.ScreenVirtualMode">
+            <summary>
+            显示屏虚拟模式
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScreenVirtualMode.Disable">
+            <summary>
+            不虚拟
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScreenVirtualMode.Led4Mode1">
+            <summary>
+            4灯虚拟方式1
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScreenVirtualMode.Led4Mode2">
+            <summary>
+            4灯虚拟方式2（目前不支持）
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ScreenVirtualMode.Led3Mode">
+            <summary>
+            3灯虚拟
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.StatusType">
+            <summary>
+            工作状态
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.StatusType.OK">
+            <summary>
+            状态OK
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.StatusType.Error">
+            <summary>
+            状态故障
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.StatusType.Unknown">
+            <summary>
+            状态未知
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.PointDetectType">
+            <summary>
+            点检类型
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.PointDetectType.OpenCircuit">
+            <summary>
+            开路点检
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.PointDetectType.ShortCircuit">
+            <summary>
+            短路点检
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.CabinetDoorStatusType">
+            <summary>
+            箱门状态
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.CabinetDoorStatusType.Close">
+            <summary>
+            箱门关闭
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.CabinetDoorStatusType.Open">
+            <summary>
+            箱门开启
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.CabinetDoorStatusType.Unknown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.DisplayControlType">
+            <summary>
+            画面控制类型
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.DisplayControlType.Normal">
+            <summary>
+            正常显示
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.DisplayControlType.Lock">
+            <summary>
+            画面锁定模式
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.DisplayControlType.Kill">
+            <summary>
+            黑屏模式
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.PowerControlMode">
+            <summary>
+            电源控制模式
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.PowerControlMode.Manual">
+            <summary>
+            手动控制(软件发送命令控制电源的开启、关闭)
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.PowerControlMode.Auto">
+            <summary>
+            自动控制(硬件自动根据电源的启动和停止时间表控制电源的开关，电源的开启和关闭时间表需要由软件设置)
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.PowerSwitchStatus">
+            <summary>
+            电源状态
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.PowerSwitchStatus.On">
+            <summary>
+            电源开启
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.PowerSwitchStatus.Off">
+            <summary>
+            电源关闭
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.ValueInfo">
+            <summary>
+            值信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ValueInfo.IsValid">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ValueInfo.Value">
+            <summary>
+            值，只有当IsValid为True时，该值才为有效值
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.AlarmInfo">
+            <summary>
+            告警信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.AlarmInfo.IsValid">
+            <summary>
+            是否有效
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.AlarmInfo.IsAlarm">
+            <summary>
+            是否告警，只有当IsValid为True时，IsAlarm表示的才为有效信息
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.ModulePixelInfo">
+            <summary>
+            每个灯板的点检结果数据
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ModulePixelInfo.IsHasErrorLight">
+            <summary>
+            是否存在故障灯点
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ModulePixelInfo.RedErrorList">
+            <summary>
+            红色故障灯点在该灯板中的坐标信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ModulePixelInfo.GreenErrorList">
+            <summary>
+            绿色故障灯点在该灯板中的坐标信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ModulePixelInfo.BlueErrorList">
+            <summary>
+            蓝色故障灯点在该灯板中的坐标信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.ModulePixelInfo.VRedErrorList">
+            <summary>
+            虚拟红故障灯点在该灯板中的坐标信息
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.CabinetErrorPixelInfo">
+            <summary>
+            箱体的点检结果数据
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.CabinetErrorPixelInfo.ModuleCols">
+            <summary>
+            箱体带载的灯板列数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.CabinetErrorPixelInfo.ModuleRows">
+            <summary>
+            箱体带载的灯板行数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.CabinetErrorPixelInfo.ModuleList">
+            <summary>
+            箱体中灯板的点检结果数据列表
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.CabinetPixelInfoEventArgs">
+            <summary>
+            包含点检结果数据的参数类
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.CabinetPixelInfoEventArgs.#ctor(System.Int32,System.Int32,System.Boolean,Nova.Mars.SDK.CabinetErrorPixelInfo)">
+            <summary>
+            初始化CabinetPixelInfoEventArgs类新实例。
+            </summary>
+            <param name="screenIndex">点检的显示屏索引</param>
+            <param name="scanBdIndex">点检的箱体在显示屏中的索引</param>
+            <param name="bDetectSuccess">是否成功完成点检</param>
+            <param name="pixelInf">点检的结果数据</param>
+        </member>
+        <member name="P:Nova.Mars.SDK.CabinetPixelInfoEventArgs.IsDetectedSuccessful">
+            <summary>
+            是否成功完成点检
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.CabinetPixelInfoEventArgs.screenIndex">
+            <summary>
+            点检的显示屏索引
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.CabinetPixelInfoEventArgs.scanBdIndex">
+            <summary>
+            点检的箱体在显示屏中的索引
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.CabinetPixelInfoEventArgs.PixelInfo">
+            <summary>
+            点检的结果数据
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.CabinetPixelInfoEventHandler">
+            <summary>
+            点检完成事件的委托
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Nova.Mars.SDK.RefreshResultEventArgs">
+            <summary>
+            包含刷新监控数据结果的参数类
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.RefreshResultEventArgs.#ctor(System.Boolean,System.String)">
+            <summary>
+            初始化监控结果的参数类
+            </summary>
+            <param name="bFinishSucceed"></param>
+        </member>
+        <member name="P:Nova.Mars.SDK.RefreshResultEventArgs.bFinishSucceed">
+            <summary>
+            是否成功完成刷新监控数据
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.RefreshResultEventHandler">
+            <summary>
+            刷新监控数据完成事件的委托
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Nova.Mars.SDK.CompleteHotBackUpWriteConfig">
+            <summary>
+            设置、保存和删除热备份信息时，能够获取完成结果的委托
+            </summary>
+            <param name="res">关于热备份操作的完成结果的委托</param>
+        </member>
+        <member name="T:Nova.Mars.SDK.CompleteHotBackUpReadConfig">
+            <summary>
+            获取热备份信息时，能够获取完成结果的委托
+            </summary>
+            <param name="res">关于热备份操作的完成状态</param>
+            /// <param name="info">热备份信息</param>
+        </member>
+        <member name="T:Nova.Mars.SDK.CompleteControlSysInfoConfig">
+            <summary>
+            获取控制系统类型、序列号、网口数时，能够获取完成结果的委托
+            </summary>
+            <param name="res">获取控制系统信息的状态</param>
+            <param name="info">控制系统信息</param>
+        </member>
+        <member name="T:Nova.Mars.SDK.ComPleteReadScannerParametersConfig">
+            <summary>
+            获取接收卡刷新率、灰度级数、刷新倍率、亮度时，能够获取完成结果的委托
+            </summary>
+            <param name="res">获取接收卡参数的状态</param>
+            <param name="info">接收卡参数</param>
+        </member>
+        <member name="T:Nova.Mars.SDK.CompleteSendConfigFileToHW">
+            <summary>
+            将接收卡配置文件信息发送到接收卡时，能够获取完成结果的委托
+            </summary>
+            <param name="res">获取完成结果的状态</param>
+        </member>
+        <member name="T:Nova.Mars.SDK.SaveParamsCallBack">
+            <summary>
+            保存接收卡参数、屏体信息、热备份信息时，能够获取完成结果的委托
+            </summary>
+            <param name="resData">获取完成结果的状态</param>
+        </member>
+        <member name="T:Nova.Mars.SDK.ComPleteSetScanBigTableData">
+            <summary>
+            写入大表的委托
+            </summary>
+            <param name="res">写入接收卡结果的状态</param>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsEquipmentIPEventArgs">
+            <summary>
+            包含刷新监控数据结果的参数类
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.MarsEquipmentIPEventArgs.Data">
+            <summary>
+            回读数据
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.MarsEquipmentIPEventArgs.IsExecResult">
+            <summary>
+            操作结果
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsControlSystemIPEventHandler">
+            <summary>
+            发送卡IP操作委托
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:Nova.Mars.SDK.HotBackUpState">
+            <summary>
+            热备份状态
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.GetControlSysState">
+            <summary>
+            获取控制系统信息状态
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.ReadScannerState">
+            <summary>
+            获取接收卡参数状态
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.ControlSysInfo">
+            <summary>
+            控制系统信息
+            </summary>
+        </member>
+        <member name="T:ScannerParameter">
+            <summary>
+            接收卡信息
+            </summary>
+        </member>
+        <member name="T:SendConfigFileToHWState">
+            <summary>
+            发送配置文件信息到硬件的枚举状态
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.Successful">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.LoadError">
+            <summary>
+            加载配置文件失败
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.SendError">
+            <summary>
+            发送失败
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.InitalError">
+            <summary>
+            初始化失败
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.Loading">
+            <summary>
+            正在处理
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.ScreenIndexError">
+            <summary>
+            显示屏索引错误
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.ConfigFileNameIsNone">
+            <summary>
+            配置文件为空
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.DVIInfoError">
+            <summary>
+            DVI信息错误
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.NoScanBdInfo">
+            <summary>
+            至少需要一张接收卡的信息
+            </summary>
+        </member>
+        <member name="F:SendConfigFileToHWState.OutOfAange">
+            <summary>
+            发送卡的映射区域不在当前显示屏的范围
+            </summary>
+        </member>
+        <!-- 对于成员“F:SendConfigFileToHWState.SenderError”忽略有格式错误的 XML 注释 -->
+        <member name="T:SaveParamsErrorType">
+            <summary>
+            保存参数的枚举状态
+            </summary>
+        </member>
+        <member name="F:SaveParamsErrorType.OK">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:SaveParamsErrorType.UnInit">
+            <summary>
+            初始化失败
+            </summary>
+        </member>
+        <member name="F:SaveParamsErrorType.SaveScreenInfoErr">
+            <summary>
+            保存屏体信息失败
+            </summary>
+        </member>
+        <member name="F:SaveParamsErrorType.SaveSenderParamsErr">
+            <summary>
+            保存发送卡参数失败
+            </summary>
+        </member>
+        <member name="F:SaveParamsErrorType.SaveScannerParamsErr">
+            <summary>
+            保存接收卡参数失败
+            </summary>
+        </member>
+        <member name="F:SaveParamsErrorType.SaveReduInfoErr">
+            <summary>
+            保存热备份信息失败
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsControlSystem">
+            <summary>
+            控制系统操作类
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.CHIPINFO_DIC">
+            <summary>
+            芯片信息的变量
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.MAXPOWERCOUNTINFC">
+            <summary>
+            电源最大个数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.MAXOUTDEVICECOUNT">
+            <summary>
+            外设的最大个数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.MAXFANCOUNT">
+            <summary>
+            最大风扇个数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.MAXPOWERCOUNTINMC">
+            <summary>
+            监控卡上最大的电源个数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._marsEnumerator">
+            <summary>
+            设置媒体器
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._comNameOfCtrlSystem">
+            <summary>
+            当前设备躲在的串口
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._ledDisplayInfoList">
+            <summary>
+            显示屏屏体信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._statusMonitor">
+            <summary>
+            监控线程对象
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._monitorInfoDic">
+            <summary>
+            监控数据
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._pointDetect">
+            <summary>
+            箱体点检对象
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._curPointDetectScreenIndex">
+            <summary>
+            当前正在点检的显示屏索引
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._curPointDetectSBIndex">
+            <summary>
+            当前正在点检的接收卡索引
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._screenChipTypeList">
+            <summary>
+            所有显示屏的驱动芯片类型列表
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._curReadInfoType">
+            <summary>
+            回读参数的类型
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._isInit">
+            <summary>
+            是否初始化管理器
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._oneScreenDriverChip">
+            <summary>
+            回读到的一个显示屏的驱动芯片类型
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._globalBrightness">
+            <summary>
+            回读的全局亮度
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._brightInfo">
+            <summary>
+            回读的亮度分量信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._readGammaValue">
+            <summary>
+            回读的Gamma值
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._curReadGainScreenIndex">
+            <summary>
+            当前正在回读驱动芯片的显示屏索引
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._gainInfo">
+            <summary>
+            回读的增益分量信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._pwerOperTimeList">
+            <summary>
+            获取的网口上连接多功能卡的电源自动控制时间
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._powerCtrlMode">
+            <summary>
+            获取的网口上连接多功能卡的电源控制模式
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._powerOperType">
+            <summary>
+            获取的网口上连接多功能卡的电源状态
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._luxValueInfoOfFC">
+            <summary>
+            获取的网口上连接多功能卡的光探头值
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem._luxValueInfoOfSender">
+            <summary>
+            获取的发送卡上连接的光探头值
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.#ctor(Nova.Mars.SDK.MarsHardwareEnumerator)">
+            <summary>
+            构造控制系统操作类
+            </summary>
+            <param name="enumerator">控制系统设备枚举器</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.Initialize(System.String,System.Int32@,System.Int32@)">
+            <summary>
+            初始化指定串口的控制系统，获取串口的显示屏个数和发送卡(控制器)个数
+            </summary>
+            <param name="comNameOfCtrlSystem">需要初始化的串口</param>
+            <param name="screenCount">当前串口配置的显示屏个数</param>
+            <param name="senderCount">当前串口连接的发送卡(控制器)的个数</param>
+            <returns>返回初始化的结果,如果初始化成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.UnInitialize">
+            <summary>
+            反初始化控制系统操作类
+            </summary>
+            <returns>返回反初始化的结果,如果成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetMarsDisplayResolutionRate(Nova.Mars.SDK.SenderDisplayValueInfo)">
+            <summary>
+            设置控制卡显示信息
+            </summary>
+            <param name="senderDisplayInfo">要设置的信息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.CompletedSetMarsDisplayEDIDEvent(System.Object,Nova.LCT.GigabitSystem.HWConfigAccessor.OperateEventArgs)">
+            <summary>
+            设置控制卡显示信息完成事件
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetMarsDisplayResolutionRateInfo(System.Byte)">
+            <summary>
+            获取控制卡的分辨率
+            </summary>
+            <param name="senderCardAddr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetLEDScreenInfo(System.UInt16,System.UInt16,System.Collections.Generic.List{Nova.Mars.SDK.LEDScreenInfo})">
+            <summary>
+            设置显示屏信息
+            </summary>
+            <param name="dviWidth">DVI的宽度</param>
+            <param name="dviHeight">DVI的高度</param>
+            <param name="screenInfoList">显示屏信息列表</param>
+            <returns>设置屏体信息的结果，当屏体信息中存在接收卡地址重复，则返回SBAddrDuplication；
+                                         当某一个显示屏中接收卡列表为空，则返回ScreenHasNoSB；
+                                         当设置的DVI宽高小于等于0时，则返回DVIInfoError；
+                                         当初始化失败或未初始化时，则返回NotInit；
+                                         当显示屏的水平（或垂直）位置大于最大值时，则返回ScreenLocationError；
+                                         当接收卡在屏中的水平（或垂直）位置大于最大值时，则返回SBLocationError；
+                                         其他失败均返回CommunicateFailed,
+                                         当设置成功时，返回OK</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ClearLEDScreenInfo">
+            <summary>
+            清空屏体信息
+            </summary>
+            <returns>清空屏体信息的结果,当初始化失败或未初始化时，则返回NotInit；
+                                        当清空失败时，返回CommunicateFailed；
+                                        当清空成功时，返回OK</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ReadLEDScreenInfo(System.Collections.Generic.List{Nova.Mars.SDK.LEDScreenInfo}@)">
+            <summary>
+            读显示屏信息
+            </summary>
+            <param name="screenInfoList">获取到的显示屏信息列表</param>
+            <returns>读显示屏信息的结果,当初始化失败或未初始化时，则返回NotInit；
+                                        当读屏体信息失败时，返回CommunicateFailed；
+                                        当串口连接的设备类型不是控制系统时，返回CommunicateFailed；
+                                        当回读屏体信息成功时，返回OK，且screenInfoList为读到的屏体信息</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetScreenLocation(System.Int32,System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            获取指定显示屏的偏移和大小
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="x">显示屏的X偏移</param>
+            <param name="y">显示屏的Y偏移</param>
+            <param name="width">显示屏的宽</param>
+            <param name="height">显示屏的高</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetScreenLocation(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            设置指定显示屏的偏移
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="x">显示屏的X偏移</param>
+            <param name="y">显示屏的Y偏移</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetScanBoardCount(System.Int32,System.Int32@)">
+            <summary>
+            获取指定显示屏的接收卡个数
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdCount">接收卡个数</param>
+            <returns>获取接收卡个数的结果。如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetScanBoardOfScreen(System.Int32,System.Int32,Nova.Mars.SDK.ScanBoardMapRegion@)">
+            <summary>
+            获取指定显示屏中的某一接收卡在显示屏中的映射信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="index">接收卡索引</param>
+            <param name="scanBd">接收卡的映射信息</param>
+            <returns>获取接收卡映射信息的结果,如果获取成功，则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ControlDisplay(System.Int32,Nova.Mars.SDK.DisplayControlType)">
+            <summary>
+            控制显示屏的画面显示
+            </summary>
+            <param name="screenIndex">显示屏的索引</param>
+            <param name="controlType">画面显示类型</param>
+            <returns>控制显示屏画面显示的结果,如果成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetBrightness(System.Int32,System.Byte)">
+            <summary>
+            设置显示屏的全局亮度
+            </summary>
+            <param name="screenIndex">显示屏的索引</param>
+            <param name="bright">全局亮度</param>
+            <returns>设置显示屏亮度的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetRedBrightness(System.Int32,System.Byte)">
+            <summary>
+            设置显示屏的红亮度分量
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="red">红亮度分量</param>
+            <returns>设置显示屏红亮度分量的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetBlueBrightness(System.Int32,System.Byte)">
+            <summary>
+            设置显示屏的蓝亮度分量
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="blue">蓝亮度分量</param>
+            <returns>设置显示屏蓝亮度分量的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetGreenBrightness(System.Int32,System.Byte)">
+            <summary>
+            设置显示屏的绿亮度分量
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="green">绿亮度分量</param>
+            <returns>设置显示屏绿亮度分量的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetBrightness(System.Int32,System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            获取指定显示屏的亮度信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="bright">全局亮度</param>
+            <param name="red">红亮度分量</param>
+            <param name="blue">蓝亮度分量</param>
+            <param name="green">绿亮度分量</param>
+            <returns>获取亮度信息的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetGain(System.Int32,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            设置指定显示屏的电流增益
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="redGain">红增益分量</param>
+            <param name="blueGain">蓝增益分量</param>
+            <param name="greenGain">绿增益分量</param>
+            <returns>设置增益的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetGain(System.Int32,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            获取指定显示屏的电流增益
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="redGain">红增益分量</param>
+            <param name="blueGain">蓝增益分量</param>
+            <param name="greenGain">绿增益分量</param>
+            <returns>获取电流增益的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetGamma(System.Int32,System.Single)">
+            <summary>
+            设置指定显示屏的Gamma
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="gamma">Gamma值(Gamma值的范围为1-4)</param>
+            <returns>设置Gamma的结果,如果设置成功.则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetGamma(System.Int32,System.Single@)">
+            <summary>
+            获取指定显示屏的Gamma
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="gamma">Gamma值(Gamma值的范围为1-4)</param>
+            <returns>获取Gamma的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetHotBackUp(System.Collections.Generic.List{Nova.LCT.GigabitSystem.Common.SenderRedundancyInfo},Nova.Mars.SDK.CompleteHotBackUpWriteConfig)">
+            <summary>
+            设置热备份
+            </summary>
+            <param name="reduInfoList">热备份信息列表</param>
+            <param name="callBack">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetHotBackUp(Nova.Mars.SDK.CompleteHotBackUpReadConfig)">
+            <summary>
+            获取热备份信息
+            </summary>
+            <param name="callBack">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SaveHotBackUpToHw(System.Collections.Generic.List{Nova.LCT.GigabitSystem.Common.SenderRedundancyInfo},Nova.Mars.SDK.CompleteHotBackUpWriteConfig)">
+            <summary>
+            保存热备份信息到硬件
+            </summary>
+            <param name="reduInfoList">需要保存的热备份信息列表</param>
+            <param name="callBack">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.DeleteHotBackUp(System.Collections.Generic.List{Nova.LCT.GigabitSystem.Common.SenderRedundancyInfo},Nova.Mars.SDK.CompleteHotBackUpWriteConfig)">
+            <summary>
+            删除热备份信息
+            </summary>
+            <param name="deletedReduInfoList">要删除的热备份数据</param>
+            <param name="callBack">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetControlSysInfo(Nova.Mars.SDK.CompleteControlSysInfoConfig)">
+            <summary>
+            获取控制系统类型、序列号和网口数
+            </summary>
+            <param name="callBack">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetScanBigTableData(System.Byte,System.Byte,System.UInt16,System.Byte[],Nova.Mars.SDK.ComPleteSetScanBigTableData)">
+            <summary>
+            发送接收卡的大表数据到硬件
+            </summary>
+            <param name="senderIndex">发送卡序号</param>
+            <param name="portIndex">网口序号</param>
+            <param name="scanBdIndex">接收卡序号</param>
+            <param name="data">大表数据：先按组从左到右，再按扫进行数据提供，无数据时默认为ff，小于8组时按8组，小于16组时按16组进行</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ReadScannerParameters(System.Int32,System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.ComPleteReadScannerParametersConfig)">
+            <summary>
+            获取接收卡的刷新率、灰度级数、刷新倍率、亮度等参数
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="senderIndex">发送卡序号</param>
+            <param name="portIndex">发送卡网口序号</param>
+            <param name="scanBdIndex">接收卡序号</param>
+            <param name="callBack">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ResetPortFlag(System.Byte,System.Byte,System.String)">
+            <summary>
+            将冗余标志清除
+            </summary>
+            <param name="senderIndex">发送卡序号，起始为0</param>
+            <param name="portIndex">网口序号，起始为0</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SendScanConfigFileToHW(System.String,System.Int32,Nova.Mars.SDK.CompleteSendConfigFileToHW)">
+            <summary>
+            发送接收卡配置文件信息到硬件
+            </summary>
+            <param name="scanConfigFileName">接收卡配置文件路径</param>
+            <param name="screenIndex">显示屏序号</param>
+            <param name="callback">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SendSysConfigFileToHW(System.String,Nova.Mars.SDK.CompleteSendConfigFileToHW)">
+            <summary>
+            发送系统配置文件信息到硬件
+            </summary>
+            <param name="sysConfigFileName">系统配置文件路径</param>
+            <param name="callback">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SendScreenConfigFileToHW(System.String,System.Drawing.Size)">
+            <summary>
+            发送屏体配置文件信息到硬件
+            </summary>
+            <param name="screenConfigFileName">屏体配置文件路径</param>
+            <param name="dviResolution">DVI分辨率（当前发送卡分辨率）</param>
+            <returns>返回操作结果</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.BeginRefreshHardwareStatus">
+            <summary>
+            开始刷新监控数据
+            </summary>
+            <returns>调用接口的结果,如果调用成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.IsScanBoardWorkOK(System.Int32,System.Int32,Nova.Mars.SDK.StatusType@)">
+            <summary>
+            获取接收卡的状态是否正常
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="status">接收卡的状态</param>
+            <returns>获取接收卡状态的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetScanBoardTemperature(System.Int32,System.Int32,Nova.Mars.SDK.ValueInfo@)">
+            <summary>
+            获取温度信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="value">温度信息,只有value.IsValid 为True时,value.Value的值才为有效值</param>
+            <returns>获取温度的结果,如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetScanBoardVoltage(System.Int32,System.Int32,Nova.Mars.SDK.ValueInfo@)">
+            <summary>
+            获取接收卡的电压信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡的索引</param>
+            <param name="value">电压信息,只有value.IsValid 为True时,value.Value的值才为有效值</param>
+            <returns>获取电压的结果,如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.IsConnectWithMonitorBoard(System.Int32,System.Int32,System.Boolean@)">
+            <summary>
+            获取接收卡上是否连接监控卡
+            </summary>
+            <param name="screenIndex">发送卡索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <returns>获取是否连接监控卡的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetMonitorBoardHumidity(System.Int32,System.Int32,Nova.Mars.SDK.ValueInfo@)">
+            <summary>
+            获取湿度信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="value">湿度信息,只有value.IsValid 为True时,value.Value的值才为有效值</param>
+            <returns>获取湿度的结果,如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetMonitorBoardSmoke(System.Int32,System.Int32,Nova.Mars.SDK.AlarmInfo@)">
+            <summary>
+            获取烟雾告警信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="alarmInfo">告警信息,只有alarmInfo.IsValid 为True时,alarmInfo.IsAlarm的值才为有效值</param>
+            <returns>获取烟雾信息的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetMonitorBoardFan(System.Int32,System.Int32,Nova.Mars.SDK.ValueInfo[]@)">
+            <summary>
+            获取风扇转速信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="value">风扇转速信息,每个风扇的ValueInfo中只有IsValid 为True时,对应的Value值才为有效值</param>
+            <returns>获取风扇转速的结果,如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetMonitorBoardPower(System.Int32,System.Int32,Nova.Mars.SDK.ValueInfo[]@)">
+            <summary>
+            获取监控卡的电源电压信息
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="value">电源电压信息,每个风扇的ValueInfo中只有IsValid 为True时,对应的Value值才为有效值</param>
+            <returns>获取电源电压的结果,如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetCabinetDoorStatus(System.Int32,System.Int32,Nova.Mars.SDK.CabinetDoorStatusType@)">
+            <summary>
+            获取箱门状态
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="status">箱门状态</param>
+            <returns>获取箱门状态的结果,如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.IsCabinetFPCOK(System.Int32,System.Int32,Nova.Mars.SDK.StatusType@)">
+            <summary>
+            获取箱体是否正常
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="type">排线状态</param>
+            <returns>获取排线状态的结果,如果获取成功,则返回True,否则返回Failse</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.BeginPointDetect(System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.PointDetectType)">
+            <summary>
+            开始点检指定接收卡带载灯板的灯点状态
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="threshold">点检阈值(不同驱动芯片阈值范围不同)</param>
+            <param name="type">点检类型（不同驱动芯片支持的点检类型不同）</param>
+            <returns>调用该接口的结果,如果成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.BeginPointDetect(System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.PointDetectType,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            开始点检指定接收卡带载灯板的灯点状态
+            </summary>
+            <param name="screenIndex">显示屏索引</param>
+            <param name="scanBdIndex">接收卡索引</param>
+            <param name="threshold">点检阈值(不同驱动芯片阈值范围不同)</param>
+            <param name="type">点检类型（不同驱动芯片支持的点检类型不同）</param>
+            <param name="redGain">点检时设置的红增益</param>
+            <param name="greenGain">点检时设置的绿增益</param>
+            <param name="blueGain">点检时设置的蓝增益</param>
+            <returns>调用该接口的结果,如果成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetPowerControlMode(System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.PowerControlMode)">
+            <summary>
+            设置网口上连接的多功能卡的电源控制模式
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上多功能卡的索引</param>
+            <param name="ctrlMode">电源控制模式</param>
+            <returns>设置电源控制模式的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetPowerSwitchStatus(System.Int32,System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.PowerSwitchStatus)">
+            <summary>
+            设置网口上连接的多功能卡的指定电源状态
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上的多功能卡索引</param>
+            <param name="switchIndex">多功能卡的电源索引</param>
+            <param name="switchStatus">电源的状态</param>
+            <returns>设置电源状态的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetPowerAllSwitchStatus(System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.PowerSwitchStatus)">
+            <summary>
+            设置网口上连接的多功能卡的8路电源状态
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上多功能卡的索引</param>
+            <param name="switchStatus">电源状态</param>
+            <returns>设置8路电源状态的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SetPowerSwitchAutoTime(System.Int32,System.Int32,System.Int32,System.DateTime[],System.DateTime[])">
+            <summary>
+            设置网口上连接的多功能卡的8路电源自动控制时间
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上多功能卡的索引</param>
+            <param name="startTime">8路电源的开启时间</param>
+            <param name="StopTime">8路电源的关闭时间</param>
+            <returns>设置8路电源自动控制时间的结果,如果设置值成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetPowerSwitchAutoTime(System.Int32,System.Int32,System.Int32,System.DateTime[]@,System.DateTime[]@)">
+            <summary>
+            获取网口上连接的多功能卡的8路电源自动控制时间
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上多功能卡的索引</param>
+            <param name="startTime">8路电源的开启时间</param>
+            <param name="StopTime">8路电源的关闭时间</param>
+            <returns>获取8路电源自动控制时间的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetPowerControlMode(System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.PowerControlMode@)">
+            <summary>
+            获取网口上连接的多功能卡的电源控制模式
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上多功能卡的索引</param>
+            <param name="ctrlMode">电源控制模式</param>
+            <returns>获取电源控制模式的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetPowerSwitchStatus(System.Int32,System.Int32,System.Int32,System.Int32,Nova.Mars.SDK.PowerSwitchStatus@)">
+            <summary>
+            获取网口上连接的多功能卡的电源状态
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上多功能卡的索引</param>
+            <param name="switchIndex">指定多功能卡的电源索引</param>
+            <param name="switchStatus">电源状态</param>
+            <returns>获取电源状态的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetValueOfLightSensorInSender(System.Int32,System.Int32@)">
+            <summary>
+            获取发送卡上连接的光探头的值
+            </summary>
+            <param name="senderIndex">发送卡索引</param>
+            <param name="lux">光探头的值</param>
+            <returns>获取光探头值的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetValueOfLightSensorInFunction(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            获取网口上连接的多功能卡上的光探头值
+            </summary>
+            <param name="senderIndex">发送卡（控制器）索引</param>
+            <param name="portIndex">发送卡（控制器）上的网口索引</param>
+            <param name="funcCardIndex">连接在指定网口上多功能卡的索引</param>
+            <param name="devIndex">指定多功能卡的外设索引(多功能卡上共6个外设)</param>
+            <param name="lux">光探头的值</param>
+            <returns>获取光探头值的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetAllSenderCPUId(System.Collections.Generic.List{System.Byte[]}@)">
+            <summary>
+            获取多台发送卡数据
+            </summary>
+            <param name="senderList">发送卡数据集合</param>
+            <returns>获取发送卡数据的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SaveParameters">
+            <summary>
+            保存参数（不保存热备份信息）
+            </summary>
+            <returns>保存参数的结果,如果保存成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SaveParameters(Nova.Mars.SDK.SaveParamsCallBack)">
+            <summary>
+            保存参数（包括保存热备份信息）
+            </summary>
+            <param name="callback">回调函数</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.GetGammaTable(System.Byte,System.Byte[]@)">
+            <summary>
+            根据Gamma值获取Gamma表
+            </summary>
+            <param name="gamma"></param>
+            <param name="gammaTable"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.SaveGammaTableToFile(System.Byte,System.String)">
+            <summary>
+            保存Gamma表到文件
+            </summary>
+            <param name="gamma"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.LoadScanProFile(System.String,Nova.LCT.GigabitSystem.Common.ScanBoardProperty@)">
+            <summary>
+            加载接收卡配置文件
+            </summary>
+            <param name="fileName"></param>
+            <param name="scanBdProp"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Nova.Mars.SDK.MarsControlSystem.ComNameOfCtrlSystem">
+             <summary>
+            串口号
+             </summary>
+        </member>
+        <member name="E:Nova.Mars.SDK.MarsControlSystem.RefreshHardwareStatusFinishEvent">
+            <summary>
+            刷新监控数据完成触发的事件
+            </summary>
+        </member>
+        <member name="E:Nova.Mars.SDK.MarsControlSystem.GetCabinetPixelEvent">
+            <summary>
+            点检完成触发的事件
+            </summary>
+        </member>
+        <member name="E:Nova.Mars.SDK.MarsControlSystem.NotifyUnInitializeEvent">
+            <summary>
+            反初始化的通知
+            </summary>
+        </member>
+        <member name="E:Nova.Mars.SDK.MarsControlSystem.SetMarsDisplayEDIDDataEvent">
+            <summary>
+            设置分辨率事件
+            </summary>
+        </member>
+        <member name="E:Nova.Mars.SDK.MarsControlSystem.GetMarsDisplayPixDataEvent">
+            <summary>
+            获取分辨率事件
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsControlSystem.BrightOrGainInfo">
+            <summary>
+            亮度、增益的信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.BrightOrGainInfo.Red">
+            <summary>
+            红分量
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.BrightOrGainInfo.Blue">
+            <summary>
+            蓝分量
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.BrightOrGainInfo.Green">
+            <summary>
+            绿分量
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.BrightOrGainInfo.VRed">
+            <summary>
+            虚拟红分量
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData">
+            <summary>
+            解析排线数据类
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.MaxSoketCount">
+            <summary>
+            最大插座个数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.DataSignalBytesCount">
+            <summary>
+            数据信号的字节数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.MaxGroupCount">
+            <summary>
+            Group的最大个数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.ABCDCodeBytesLength">
+            <summary>
+            ABCDCode的数据长度
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.BitsCountOfOneGroup">
+            <summary>
+            一个Group中包含的位数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.BytesCountOfABCDCode">
+            <summary>
+            排线数据中ABCD信号所占的字节数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.GetLowestBitData">
+            <summary>
+            获取最低为数据时应用
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.GetLowestTwoBitData">
+            <summary>
+            获取低两位的数据时应用
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.ParseScanBoardRowLineData(System.Byte[],System.Boolean,Nova.LCT.GigabitSystem.Common.VirtualModeType,Nova.Mars.SDK.StatusType@)">
+            <summary>
+            解析排线数据
+            </summary>
+            <param name="moduleStatus">排线数据数组</param>
+            <param name="isConnectMC">是否连接监控卡</param>
+            <param name="virModeType">显示屏对应的虚拟方式</param>
+            <param name="status">排线数据对应的结果</param>
+            <returns>解析排线数据的结果</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.ParseABCDCodeData(System.Byte[],Nova.LCT.GigabitSystem.Common.DecodeType,Nova.LCT.GigabitSystem.Common.ScanType,System.Byte,Nova.Mars.SDK.StatusType@)">
+            <summary>
+            解析ABCD扫描信号
+            </summary>
+            <param name="rowLineData"></param>
+            <param name="decodeType"></param>
+            <param name="scanMode"></param>
+            <param name="soketIndex"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.ParseOneSoketRGBCodeData(System.Byte[],Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.RGBIndexInfo,System.Int32,System.Byte,Nova.LCT.GigabitSystem.Common.VirtualModeType,Nova.Mars.SDK.StatusType@)">
+            <summary>
+            解析一个插座的RGB信号
+            </summary>
+            <param name="rowLineData"></param>
+            <param name="rgbIndexInf"></param>
+            <param name="dataGroupCount"></param>
+            <param name="soketIndex"></param>
+            <param name="virModeType"></param>
+            <param name="status"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.GetRGBIndexInfo(System.Byte,Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.RGBIndexInfo@)">
+            <summary>
+            获取RGB信号的映射位置信息
+            </summary>
+            <param name="rgbCode"></param>
+            <param name="rgbIndexInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.ParseCtrlSignalData(System.Byte[],Nova.Mars.SDK.MarsControlSystem.ParseRowLineData.CtrlSignalType,System.Byte)">
+            <summary>
+            解析LAT、OE、DCLK、CTRL信号
+            </summary>
+            <param name="rowLineData"></param>
+            <param name="signalType"></param>
+            <param name="soketIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsControlSystem.GetInfoType">
+            <summary>
+            获取信息(回读信息)的类型
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadScreenInfo">
+            <summary>
+            读屏体信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadBrightInfo">
+            <summary>
+            读亮度信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadGainInfo">
+            <summary>
+            读增益信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadGamma">
+            <summary>
+            读Gamma信息
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadDriverChip">
+            <summary>
+            读驱动芯片
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadLightSensorOfSender">
+            <summary>
+            读发送卡上的光探头值
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadLightSensorOfFC">
+            <summary>
+            读连接在网口上的多功能卡上的光探头值
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadPowerAutoTime">
+            <summary>
+            读连接在网口上的多功能卡的电源自动控制时间
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadPowerCtrlMode">
+            <summary>
+            读连接在网口上的多功能卡的电源控制模式
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.ReadPowerSwitchStatus">
+            <summary>
+            读连接在网口上的多功能卡的电源状态
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.GetInfoType.None">
+            <summary>
+            未读任何信息
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsControlSystem.KillMode">
+            <summary>
+            黑屏地址的模式类型
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.KillMode.Normal">
+            <summary>
+            正常显示
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.KillMode.BlackMode">
+            <summary>
+            黑屏模式
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsControlSystem.LockMode">
+            <summary>
+            画面锁定地址的模式类型
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.LockMode.Normal">
+            <summary>
+            正常显示
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsControlSystem.LockMode.LockMode">
+            <summary>
+            锁定模式
+            </summary>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsFunctionCardInCOM">
+            <summary>
+            多功能卡操作类
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsFunctionCardInCOM.TIMEOUT_OFFSET">
+            <summary>
+            获取多功能卡信息等待超时的延长时间
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsFunctionCardInCOM.SENDDATA_TIMEOUT">
+            <summary>
+            发送一个数据包到服务的超时时间
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsFunctionCardInCOM.MAXPOWERCOUNT">
+            <summary>
+            电源最大个数
+            </summary>
+        </member>
+        <member name="F:Nova.Mars.SDK.MarsFunctionCardInCOM.MAXOUTDEVICECOUNT">
+            <summary>
+            外设的最大个数
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.#ctor(Nova.Mars.SDK.MarsHardwareEnumerator)">
+            <summary>
+            构造多功能卡操作类
+            </summary>
+            <param name="enumerator">控制系统设备枚举器</param>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.SetPowerControlMode(System.Int32,Nova.Mars.SDK.PowerControlMode)">
+            <summary>
+            设置指定多功能卡的电源控制模式。如果设置为自动时,则需要调用接口SetPowerSwitchAutoTime
+            设置电源自动控制时间列表（如果已经设置则不需要设置）
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="ctrlMode">电源控制模式</param>
+            <returns>设置电源控制模式的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.SetPowerSwitchStatus(System.Int32,System.Int32,Nova.Mars.SDK.PowerSwitchStatus)">
+            <summary>
+            设置指定多功能卡某一路电源的状态(开启或关闭)
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="switchIndex">电源路数的索引</param>
+            <param name="switchStatus">电源状态</param>
+            <returns>设置电源状态的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.SetPowerAllSwitchStatus(System.Int32,Nova.Mars.SDK.PowerSwitchStatus)">
+            <summary>
+            设置指定多功能卡上所有电源的状态(开启或关闭)，调用该接口将所有电源关闭后，电源的自动控制列表
+            将无效，除非再次调用该接口开启所有电源。
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="switchStatus">电源状态</param>
+            <returns>设置电源状态的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.SetPowerSwitchAutoTime(System.Int32,System.DateTime[],System.DateTime[])">
+            <summary>
+            设置指定电源自动控制的时间，该时间列表只有在电源控制模式为Auto时才会有效。
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="startTime">8路电源的开启时间</param>
+            <param name="StopTime">8路电源的关闭时间</param>
+            <returns>设置电源自动控制时间列表的结果,如果设置成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.GetPowerControlMode(System.Int32,Nova.Mars.SDK.PowerControlMode@)">
+            <summary>
+            获取指定多功能卡的电源控制模式
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="ctrlMode">电源控制模式</param>
+            <returns>获取电源控制模式的结果。如果获取成功，则返回True，否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.GetPowerSwitchStatus(System.Int32,System.Int32,Nova.Mars.SDK.PowerSwitchStatus@)">
+            <summary>
+            获取指定多功能卡指定电源的状态
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="switchIndex">电源索引(每个多功能卡共8路电源)</param>
+            <param name="switchStatus">获取到的电源状态</param>
+            <returns>获取电源状态的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.GetPowerSwitchAutoTime(System.Int32,System.DateTime[]@,System.DateTime[]@)">
+            <summary>
+            获取指定多功能卡的自动控制时间(每个多功能卡共8路电源，所以获取成功后startTime和stopTime的长度均为8)
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="startTime">8路电源开启时间</param>
+            <param name="stopTime">8路电源关闭时间</param>
+            <returns>获取电源自动控制时间的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsFunctionCardInCOM.GetValueOfLightSensorInFunction(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            获取指定多功能卡指定外设的光探头值
+            </summary>
+            <param name="funcCardIndex">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="devIndex">外设索引(每个多功能卡共6路外设)</param>
+            <param name="lux">获取的光探头值</param>
+            <returns>获取光探头值的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="T:Nova.Mars.SDK.MarsHardwareEnumerator">
+            <summary>
+            控制系统设备枚举器
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsHardwareEnumerator.#ctor">
+            <summary>
+            构造控制系统设备枚举器
+            </summary>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsHardwareEnumerator.Initialize">
+            <summary>
+            初始化
+            </summary>
+            <returns>初始化的结果</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsHardwareEnumerator.UnInitialize">
+            <summary>
+            反初始化
+            </summary>
+            <returns>反初始化的结果</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsHardwareEnumerator.GetComNameOfControlSystem(System.Int32,System.String@)">
+            <summary>
+            获取指定索引的控制系统所在的串口名称
+            </summary>
+            <param name="index">控制系统的索引(在当前串口连接到的控制系统列表中的索引)</param>
+            <param name="comName">串口名称</param>
+            <returns>获取串口名称的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsHardwareEnumerator.GetComNameOfFunctionCard(System.Int32,System.String@)">
+            <summary>
+            获取指定索引的多功能卡的串口名称
+            </summary>
+            <param name="index">多功能卡的索引(在当前串口连接到的多功能卡列表中的索引)</param>
+            <param name="comName">串口名称</param>
+            <returns>获取串口名称的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="M:Nova.Mars.SDK.MarsHardwareEnumerator.EnumControlSystemAndFCInCOM">
+            <summary>
+            枚举当前计算机接入的控制系统（级联的算一套）
+            </summary>
+            <returns>获取控制系统个数的结果,如果获取成功,则返回True,否则返回False</returns>
+        </member>
+        <member name="P:Nova.Mars.SDK.MarsHardwareEnumerator.ServerProxy">
+            <summary>
+            服务对象
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.MarsHardwareEnumerator.CtrlSystemCount">
+            <summary>
+            控制系统的个数
+            </summary>
+        </member>
+        <member name="P:Nova.Mars.SDK.MarsHardwareEnumerator.FuncCardInCommCount">
+            <summary>
+            连接在串口上多功能卡的个数
+            </summary>
+        </member>
+        <member name="E:Nova.Mars.SDK.MarsHardwareEnumerator.NotifyUnInitializeEvent">
+            <summary>
+            反初始化的通知
+            </summary>
+        </member>
+    </members>
+</doc>

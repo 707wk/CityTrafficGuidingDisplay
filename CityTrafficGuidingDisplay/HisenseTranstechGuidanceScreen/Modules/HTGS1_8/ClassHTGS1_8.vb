@@ -33,6 +33,12 @@ Namespace HTGS1_8
     ''' 文字
     ''' </summary>
     Public Class TextInfo
+        '''' <summary>
+        '''' 缓存文件
+        '''' </summary>
+        '<XmlIgnore>
+        'Public TmpFile As String
+
         ''' <summary>
         ''' 字体颜色
         ''' </summary>
@@ -144,6 +150,12 @@ Namespace HTGS1_8
     ''' 媒体
     ''' </summary>
     Public Class MediaInfo
+        '''' <summary>
+        '''' 缓存文件
+        '''' </summary>
+        '<XmlIgnore>
+        'Public TmpFile As String
+
         ''' <summary>
         ''' 备注
         ''' </summary>
@@ -267,10 +279,10 @@ Namespace HTGS1_8
         ''' </summary>
         Public PARA As PARAInfo
 
-        ''' <summary>
-        ''' 节目回读
-        ''' </summary>
-        Public ECHO As ECHOInfo
+        '''' <summary>
+        '''' 节目回读
+        '''' </summary>
+        'Public ECHO As ECHOInfo
     End Class
 #End Region
 
@@ -292,17 +304,21 @@ Namespace HTGS1_8
         ''' <summary>
         ''' 光带列表
         ''' </summary>
-        Public LINKS As List(Of LINK)
+        Public LINKS As LINK()
         ''' <summary>
         ''' 节目列表
         ''' </summary>
-        Public ITEMS As List(Of ITEM)
+        Public ITEMS As ITEM()
 
         ''' <summary>
         ''' 管理对象
         ''' </summary>
         Public SCREEN As SCREENInfo
 
+        ''' <summary>
+        ''' 执行结果
+        ''' </summary>
+        Public CMD As CMDInfo
         ''' <summary>
         ''' 提示信息
         ''' </summary>
@@ -335,6 +351,32 @@ Namespace HTGS1_8
         ''' </summary>
         <XmlElement>
         Public VMS As List(Of VMSInfo)
+    End Class
+#End Region
+
+#Region "播放信息"
+    ''' <summary>
+    ''' 播放信息
+    ''' </summary>
+    Public Class ProgramInfo
+        ''' <summary>
+        ''' 文件列表
+        ''' </summary>
+        Public MediaList As ITEM()
+
+        ''' <summary>
+        ''' 播放的文件序号
+        ''' </summary>
+        Public MediaID As Integer
+        ''' <summary>
+        ''' 已播放时长
+        ''' </summary>
+        Public MediaTime As Integer
+
+        ''' <summary>
+        ''' 关屏
+        ''' </summary>
+        Public OffScreen As Integer
     End Class
 #End Region
 

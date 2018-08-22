@@ -1,4 +1,5 @@
 ﻿Imports System.Xml.Serialization
+Imports Nova.Mars.SDK
 
 Public Module ModuleStructure
 #Region "窗体信息"
@@ -47,11 +48,6 @@ Public Module ModuleStructure
         ''' 发送信息组标题
         ''' </summary>
         Dim SendTopicTitle As String
-
-        ''' <summary>
-        ''' 接收最大等待时间 (s)
-        ''' </summary>
-        Dim ReceiveTimeOut As Integer
     End Structure
 #End Region
 
@@ -73,16 +69,36 @@ Public Module ModuleStructure
         Dim DeviceID As String
 
         ''' <summary>
-        ''' 窗体信息
+        ''' 日志记录
         ''' </summary>
-        Dim WindInfo As WindowInfo
+        <XmlIgnore>
+        Dim logger As Wangk.Tools.Logger
+#End Region
+
+#Region "Nova参数"
+        ''' <summary>
+        ''' Nova窗口
+        ''' </summary>
+        <XmlIgnore>
+        Dim NovaDialog As Nova
 #End Region
 
 #Region "运行参数"
         ''' <summary>
+        ''' 窗体信息
+        ''' </summary>
+        Dim WindInfo As WindowInfo
+
+        ''' <summary>
         ''' 服务器信息
         ''' </summary>
         Dim MQSInfo As MQServerInfo
+
+        ''' <summary>
+        ''' 播放信息
+        ''' </summary>
+        <XmlIgnore>
+        Dim Program As HTGS1_8.ProgramInfo
 #End Region
     End Structure
 #End Region

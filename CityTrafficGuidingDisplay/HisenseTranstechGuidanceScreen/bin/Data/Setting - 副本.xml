@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SystemInfo>
+  <DeviceID>430103000000100010</DeviceID>
+  <WindInfo>
+    <Location>
+      <X>0</X>
+      <Y>0</Y>
+    </Location>
+    <Size>
+      <Width>320</Width>
+      <Height>240</Height>
+    </Size>
+    <TopFlage>false</TopFlage>
+  </WindInfo>
+  <MQSInfo>
+    <UserName>cshiatmp</UserName>
+    <Password>cshiatmp</Password>
+    <Url>activemq:failover:(tcp://192.168.56.2:61616?wireFormat.maxInactivityDuration=10000,tcp://127.0.0.1:61616?wireFormat.maxInactivityDuration=10000)?randomize=false</Url>
+    <ReceiveTopicTitle>HIATMP.HISENSE.VMS.NEWVMSPUB</ReceiveTopicTitle>
+    <SendTopicTitle>HIATMP.HISENSE.VMS.NEWVMSPUBBAK</SendTopicTitle>
+  </MQSInfo>
+</SystemInfo>
