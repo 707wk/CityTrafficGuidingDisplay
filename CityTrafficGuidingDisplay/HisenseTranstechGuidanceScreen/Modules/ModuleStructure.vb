@@ -51,39 +51,16 @@ Public Module ModuleStructure
     End Structure
 #End Region
 
-#Region "系统配置"
+#Region "配置参数"
     ''' <summary>
-    ''' 系统配置
+    ''' 配置参数
     ''' </summary>
-    Public Structure SystemInfo
-#Region "系统参数"
-        ''' <summary>
-        ''' 连接状态
-        ''' </summary>
-        <XmlIgnore>
-        Dim LinkFlage As Boolean
-
+    Public Structure Setting
         ''' <summary>
         ''' 设备编号
         ''' </summary>
         Dim DeviceID As String
 
-        ''' <summary>
-        ''' 日志记录
-        ''' </summary>
-        <XmlIgnore>
-        Dim logger As Wangk.Tools.Logger
-#End Region
-
-#Region "Nova参数"
-        ''' <summary>
-        ''' Nova窗口
-        ''' </summary>
-        <XmlIgnore>
-        Dim NovaDialog As Nova
-#End Region
-
-#Region "运行参数"
         ''' <summary>
         ''' 窗体信息
         ''' </summary>
@@ -93,11 +70,48 @@ Public Module ModuleStructure
         ''' 服务器信息
         ''' </summary>
         Dim MQSInfo As MQServerInfo
+    End Structure
+#End Region
+
+#Region "系统配置"
+    ''' <summary>
+    ''' 系统配置
+    ''' </summary>
+    Public Structure SystemInfo
+#Region "系统参数"
+        ''' <summary>
+        ''' 连接状态
+        ''' </summary>
+        Dim LinkFlage As Boolean
+
+        ''' <summary>
+        ''' 持久化日志记录
+        ''' </summary>
+        Dim logger As Wangk.Tools.Logger
+
+        ''' <summary>
+        ''' 临时日志
+        ''' </summary>
+        Dim logsCache As Queue(Of String)
+#End Region
+
+#Region "Nova参数"
+        '''' <summary>
+        '''' Nova窗口
+        '''' </summary>
+        '<XmlIgnore>
+        'Dim NovaDialog As Nova
+#End Region
+
+#Region "运行参数"
+        ''' <summary>
+        ''' 配置信息
+        ''' </summary>
+        Dim Setting As Setting
 
         ''' <summary>
         ''' 播放信息
         ''' </summary>
-        <XmlIgnore>
         Dim Program As HTGS1_8.ProgramInfo
 #End Region
     End Structure

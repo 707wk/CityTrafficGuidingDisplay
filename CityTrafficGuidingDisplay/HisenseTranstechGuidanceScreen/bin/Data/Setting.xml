@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SystemInfo>
+<Setting>
   <DeviceID>430105000000100009</DeviceID>
   <WindInfo>
     <Location>
@@ -15,8 +15,8 @@
   <MQSInfo>
     <UserName>cshiatmp</UserName>
     <Password>cshiatmp</Password>
-    <Url>activemq:failover:(tcp://192.168.56.2:61616?wireFormat.maxInactivityDuration=10000,tcp://127.0.0.1:61616?wireFormat.maxInactivityDuration=10000)?randomize=false</Url>
+    <Url>activemq:failover:(tcp://192.168.56.2:61616?wireFormat.maxInactivityDuration=120000,tcp://43.5.18.3:61616?wireFormat.maxInactivityDuration=120000)?randomize=false</Url>
     <ReceiveTopicTitle>HIATMP.HISENSE.VMS.NEWVMSPUB</ReceiveTopicTitle>
     <SendTopicTitle>HIATMP.HISENSE.VMS.NEWVMSPUBBAK</SendTopicTitle>
   </MQSInfo>
-</SystemInfo>
+</Setting>

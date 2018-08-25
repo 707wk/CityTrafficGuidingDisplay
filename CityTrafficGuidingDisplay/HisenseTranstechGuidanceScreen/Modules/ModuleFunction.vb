@@ -14,8 +14,8 @@ Module ModuleFunction
         '反序列化
         Try
             Using fStream As New FileStream("./Data/Setting.xml", FileMode.Open)
-                Dim XmlSerializer As XmlSerializer = New XmlSerializer(GetType(SystemInfo))
-                sysinfo = XmlSerializer.Deserialize(fStream)
+                Dim XmlSerializer As XmlSerializer = New XmlSerializer(GetType(Setting))
+                sysinfo.Setting = XmlSerializer.Deserialize(fStream)
             End Using
         Catch ex As Exception
             'MsgBox(ex.Message,
@@ -44,8 +44,8 @@ Module ModuleFunction
                 Dim tmpXmlTextWriter As XmlTextWriter = New XmlTextWriter(fStream, Encoding.UTF8) With {
                     .Formatting = Formatting.Indented '子节点缩进
                 }
-                Dim sfFormatter As New XmlSerializer(GetType(SystemInfo))
-                sfFormatter.Serialize(tmpXmlTextWriter, sysinfo, ns)
+                Dim sfFormatter As New XmlSerializer(GetType(Setting))
+                sfFormatter.Serialize(tmpXmlTextWriter, sysinfo.Setting, ns)
             End Using
         Catch ex As Exception
             'MsgBox(ex.Message,
@@ -93,6 +93,7 @@ Module ModuleFunction
                 System.IO.File.Delete(i001)
             Next
         Catch ex As Exception
+            PutOut(ex.Message)
         End Try
 
         '序列化
@@ -116,5 +117,11 @@ Module ModuleFunction
 
         Return True
     End Function
+#End Region
+
+#Region "日志输出"
+    Public Sub PutOut(ByVal Str As String)
+        sysinfo.logsCache.Enqueue($"{Now().ToString("HH:mm:ss.fff")}: {Str}{vbCrLf}")
+    End Sub
 #End Region
 End Module

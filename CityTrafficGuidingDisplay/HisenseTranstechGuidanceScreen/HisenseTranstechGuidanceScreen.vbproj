@@ -11,7 +11,7 @@
     <AssemblyName>HisenseTranstechGuidanceScreen</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -28,6 +28,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -94,10 +95,6 @@
     <Reference Include="Apache.NMS.ActiveMQ">
       <HintPath>..\..\DotNetDLL\ActiveMQ\Apache.NMS.ActiveMQ.dll</HintPath>
     </Reference>
-    <Reference Include="Nova.Mars.SDK.MarsInterface">
-      <HintPath>..\..\DotNetDLL\Nova\Nova.Mars.SDK.MarsInterface.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -138,6 +135,12 @@
     <Compile Include="Forms\Main\Nova.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Main\OutputInfo.Designer.vb">
+      <DependentUpon>OutputInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Main\OutputInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modules\HTGS1_8\ClassHTGS1_8.vb" />
     <Compile Include="Modules\HTGS1_8\FunctionHTGS1_8.vb" />
     <Compile Include="Modules\HTGS1_8\StructureHTGS1_8.vb" />
@@ -168,6 +171,9 @@
     <EmbeddedResource Include="Forms\Main\Nova.resx">
       <DependentUpon>Nova.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\OutputInfo.resx">
+      <DependentUpon>OutputInfo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -192,6 +198,7 @@
     <Content Include="Forms\Select\README.txt" />
     <Content Include="logo_32px.ico" />
     <Content Include="README.txt" />
+    <None Include="res\YESTECH_400x64px.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />

@@ -89,6 +89,7 @@ Partial Class MDIParentMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(294, 201)
         Me.Controls.Add(Me.AxWindowsMediaPlayer1)
         Me.Controls.Add(Me.TextBox1)
@@ -98,6 +99,8 @@ Partial Class MDIParentMain
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "MDIParentMain"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
         Me.Text = "MDIParentMain"
         Me.ContextMenuStrip1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

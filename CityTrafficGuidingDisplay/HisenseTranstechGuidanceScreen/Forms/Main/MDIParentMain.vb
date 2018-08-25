@@ -4,12 +4,6 @@ Imports Apache.NMS
 Public Class MDIParentMain
 #Region "窗体初始化/关闭"
     Private Sub MDIParentMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-#Region "启动守护进程"
-        'If System.Diagnostics.Process.GetProcessesByName("DaemonService").Length = 0 Then
-        '    Process.Start(".\DaemonService.exe")
-        'End If
-#End Region
-
 #Region "初始化变量"
         LoadSetting()
 
@@ -21,7 +15,9 @@ Public Class MDIParentMain
                 .writelevel = Wangk.Tools.Loglevel.Level_DEBUG,
                 .saveDaysMax = 30
             }
-            sysinfo.logger.Init()
+            .logger.Init()
+
+            .logsCache = New Queue(Of String)
 
             If .Program Is Nothing Then
                 .Program = New HTGS1_8.ProgramInfo
@@ -29,6 +25,15 @@ Public Class MDIParentMain
         End With
 
         Timer1.Interval = 1000
+
+        PutOut("读取配置")
+#End Region
+
+#Region "启动守护进程"
+        PutOut("启动守护进程")
+        If System.Diagnostics.Process.GetProcessesByName("DaemonService").Length = 0 Then
+            Process.Start(".\DaemonService.exe")
+        End If
 #End Region
 
 #Region "样式设置"
@@ -58,13 +63,13 @@ Public Class MDIParentMain
     ''' 创建Nova窗体
     ''' </summary>
     Public Sub CreatNovaThread()
-        sysinfo.NovaDialog = New Nova
-        sysinfo.NovaDialog.ShowDialog()
+        'sysinfo.NovaDialog = New Nova
+        'sysinfo.NovaDialog.ShowDialog()
     End Sub
 #End Region
 
     Private Sub MDIParentMain_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-        With sysinfo.WindInfo
+        With sysinfo.Setting.WindInfo
             Me.Location = .Location
             Me.Size = .Size
             Me.TopMost = .TopFlage
@@ -96,6 +101,8 @@ Public Class MDIParentMain
         If sysinfo.Program.OffScreen = 0 Then
             Timer1.Start()
         End If
+
+        OutputInfo.Show()
     End Sub
 
     Private Sub 退出ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles 退出ToolStripMenuItem.Click
@@ -135,18 +142,22 @@ Public Class MDIParentMain
 
 #Region "ActiveMQ连接"
     Public Sub ActiveMQServerStart()
-        MQFactory = New NMSConnectionFactory(sysinfo.MQSInfo.Url)
-        MQConnection = MQFactory.CreateConnection(sysinfo.MQSInfo.UserName, sysinfo.MQSInfo.Password)
+        PutOut("连接ActiveMQ")
+
+        MQFactory = New NMSConnectionFactory(sysinfo.Setting.MQSInfo.Url)
+        MQConnection = MQFactory.CreateConnection(sysinfo.Setting.MQSInfo.UserName, sysinfo.Setting.MQSInfo.Password)
         MQConnection.ClientId = $"{My.Application.Info.Title}"
         MQConnection.Start()
 
         MQSession = MQConnection.CreateSession(AcknowledgementMode.AutoAcknowledge)
 
-        Dim destRec As IDestination = MQSession.GetTopic(sysinfo.MQSInfo.ReceiveTopicTitle)
+        Dim destRec As IDestination = MQSession.GetTopic(sysinfo.Setting.MQSInfo.ReceiveTopicTitle)
         MQConsumer = MQSession.CreateConsumer(destRec)
 
-        Dim destSend As IDestination = MQSession.GetTopic(sysinfo.MQSInfo.SendTopicTitle)
+        Dim destSend As IDestination = MQSession.GetTopic(sysinfo.Setting.MQSInfo.SendTopicTitle)
         MQProducer = MQSession.CreateProducer(destSend)
+
+        PutOut("连接成功")
 
         '绑定接收事件
         AddHandler MQConnection.ExceptionListener, AddressOf MQExceptionListener
@@ -158,16 +169,19 @@ Public Class MDIParentMain
 
 #Region "ActiveMQ断开"
     Public Sub ActiveMQServerStop()
-        '注销接收事件
-        RemoveHandler MQConsumer.Listener, AddressOf MQConsumerListener
-        RemoveHandler MQConnection.ExceptionListener, AddressOf MQExceptionListener
-        RemoveHandler MQConnection.ConnectionInterruptedListener, AddressOf MQInterruptedListener
-        RemoveHandler MQConnection.ConnectionResumedListener, AddressOf MQResumedListener
+        Try
+            '注销接收事件
+            RemoveHandler MQConsumer.Listener, AddressOf MQConsumerListener
+            RemoveHandler MQConnection.ExceptionListener, AddressOf MQExceptionListener
+            RemoveHandler MQConnection.ConnectionInterruptedListener, AddressOf MQInterruptedListener
+            RemoveHandler MQConnection.ConnectionResumedListener, AddressOf MQResumedListener
 
-        MQConsumer.Close()
-        MQProducer.Close()
-        MQSession.Close()
-        MQConnection.Close()
+            MQConsumer.Close()
+            MQProducer.Close()
+            MQSession.Close()
+            MQConnection.Close()
+        Catch ex As Exception
+        End Try
     End Sub
 #End Region
 
@@ -181,7 +195,7 @@ Public Class MDIParentMain
                                "异常:" & Ex.Message,
                                Wangk.Tools.Loglevel.Level_WARN
                                )
-        Debug.WriteLine(Now.ToString("yyyy-MM-dd HH:mm:ss :") & "异常:" & Ex.Message)
+        PutOut("异常:" & Ex.Message)
     End Sub
 #End Region
 
@@ -194,7 +208,7 @@ Public Class MDIParentMain
                                "MQ服务断线",
                                Wangk.Tools.Loglevel.Level_WARN
                                )
-        Debug.WriteLine(Now.ToString("yyyy-MM-dd HH:mm:ss :") & "MQ服务断线")
+        PutOut("MQ服务断线")
 
         Me.Invoke(New ScreenCloseCallback(AddressOf ScreenClose), New Object() {""})
     End Sub
@@ -209,7 +223,7 @@ Public Class MDIParentMain
                                "MQ服务恢复",
                                Wangk.Tools.Loglevel.Level_WARN
                                )
-        Debug.WriteLine(Now.ToString("yyyy-MM-dd HH:mm:ss :") & "MQ服务恢复")
+        PutOut("MQ服务恢复")
 
         Me.Invoke(New ScreenOpenCallback(AddressOf ScreenOpen), New Object() {""})
     End Sub
@@ -236,6 +250,8 @@ Public Class MDIParentMain
     ''' 播放素材
     ''' </summary>
     Public Sub PlayMedia()
+        PutOut($"播放第{sysinfo.Program.MediaID + 1}个素材")
+
         ScreenHide()
 
         Try
@@ -252,8 +268,10 @@ Public Class MDIParentMain
                     Dim TmpFile As String = System.IO.Path.GetFileName(.img.url)
 
                     If Not System.IO.File.Exists($"./Tmp/{TmpFile}") Then
+                        PutOut($"下载素材1")
                         My.Computer.Network.DownloadFile(.img.url, $"./Tmp/{TmpFile}")
                     ElseIf New System.IO.FileInfo($"./Tmp/{TmpFile}").Length = 0 Then
+                        PutOut($"下载素材2")
                         System.IO.File.Delete($"./Tmp/{TmpFile}")
                         My.Computer.Network.DownloadFile(.img.url, $"./Tmp/{TmpFile}")
                     End If
@@ -266,8 +284,10 @@ Public Class MDIParentMain
                     Dim TmpFile As String = System.IO.Path.GetFileName(.video.url)
 
                     If Not System.IO.File.Exists($"./Tmp/{TmpFile}") Then
+                        PutOut($"下载素材3")
                         My.Computer.Network.DownloadFile(.video.url, $"./Tmp/{TmpFile}")
                     ElseIf New System.IO.FileInfo($"./Tmp/{TmpFile}").Length = 0 Then
+                        PutOut($"下载素材4")
                         System.IO.File.Delete($"./Tmp/{TmpFile}")
                         My.Computer.Network.DownloadFile(.video.url, $"./Tmp/{TmpFile}")
                     End If
@@ -281,6 +301,8 @@ Public Class MDIParentMain
                 End If
             End With
         Catch ex As Exception
+            PutOut(ex.Message)
+
             sysinfo.logger.LogThis("播放素材",
                                "异常:" & ex.Message,
                                Wangk.Tools.Loglevel.Level_WARN
@@ -437,24 +459,29 @@ Public Class MDIParentMain
             Select Case Screen.CMD.type
                 Case "on"
                     '开屏
+                    PutOut("开屏")
                     ScreenOpen(CmdID)
                     MQGeneralResponse(CmdID, "0", "执行成功")
 
                 Case "off"
                     '关屏
+                    PutOut("关屏")
                     ScreenClose(CmdID)
                     MQGeneralResponse(CmdID, "0", "执行成功")
 
                 Case "status"
                     '屏幕状态
+                    PutOut("屏幕状态")
                     ScreenState(CmdID)
 
                 Case "clear"
                     '清屏
+                    PutOut("清屏")
                     ScreenClear(CmdID)
 
                 Case Else
                     '其他操作
+                    PutOut("其他操作")
                     MQGeneralResponse(CmdID, "1", "不支持的操作")
             End Select
 
@@ -467,7 +494,7 @@ Public Class MDIParentMain
                     End If
 
                     Dim Result As Boolean
-                    sysinfo.NovaDialog.SetBrightness(Val(Screen.PARA.value) * 255 \ 16, Result)
+                    'sysinfo.NovaDialog.SetBrightness(Val(Screen.PARA.value) * 255 \ 16, Result)
                     MQGeneralResponse(CmdID, If(Result, "0", "1"), If(Result, "执行成功", "设置失败"))
                 Case Else
                     '其他操作
@@ -489,6 +516,8 @@ Public Class MDIParentMain
             Me.Invoke(New DisposeVMSCallback(AddressOf DisposeVMS), New Object() {VMS})
             Exit Sub
         End If
+
+        PutOut("处理报文")
 
         If VMS.ITEMS IsNot Nothing Then
             '节目列表
@@ -513,11 +542,13 @@ Public Class MDIParentMain
     ''' <param name="RESULT">结果</param>
     ''' <param name="MSG">提示信息</param>
     Public Sub MQGeneralResponse(ByVal CmdID As String, ByVal Result As String, ByVal Msg As String)
+        PutOut("响应报文")
+
         Dim tmpHiATMP As New HTGS1_8.HiATMP
         With tmpHiATMP
             .VMS = New List(Of HTGS1_8.VMSInfo) From {
                 New HTGS1_8.VMSInfo With {
-                .id = sysinfo.DeviceID,
+                .id = sysinfo.Setting.DeviceID,
                 .cmdid = CmdID,
                 .CMD = New HTGS1_8.CMDInfo With {
                 .RESULT = Result},
@@ -547,9 +578,11 @@ Public Class MDIParentMain
         End If
 
         For Each i001 As HTGS1_8.VMSInfo In tmpHiATMP.VMS
-            If i001.id <> sysinfo.DeviceID Then
+            If i001.id <> sysinfo.Setting.DeviceID Then
                 Continue For
             End If
+
+            PutOut("收到报文")
 
             DisposeVMS(i001)
         Next
