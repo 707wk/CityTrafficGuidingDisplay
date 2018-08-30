@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "HisenseTranstechGuidanceScreen", "HisenseTranstechGuidanceScreen\HisenseTranstechGuidanceScreen.vbproj", "{627AA56F-D600-46B5-899A-C7AA8FDECB25}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "KeyGeneration", "KeyGeneration\KeyGeneration.vbproj", "{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{627AA56F-D600-46B5-899A-C7AA8FDECB25}.Release|Any CPU.Build.0 = Release|Any CPU
 		{627AA56F-D600-46B5-899A-C7AA8FDECB25}.Release|x86.ActiveCfg = Release|x86
 		{627AA56F-D600-46B5-899A-C7AA8FDECB25}.Release|x86.Build.0 = Release|x86
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Debug|Any CPU.Build.0 = Debug|x86
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Debug|x86.ActiveCfg = Debug|x86
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Debug|x86.Build.0 = Debug|x86
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Release|x86.ActiveCfg = Release|Any CPU
+		{6B7CC7A6-72E4-452D-A13F-597EFE1FFA47}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

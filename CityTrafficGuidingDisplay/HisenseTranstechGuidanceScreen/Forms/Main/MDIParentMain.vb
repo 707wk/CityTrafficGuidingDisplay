@@ -22,9 +22,13 @@ Public Class MDIParentMain
             If .Program Is Nothing Then
                 .Program = New HTGS1_8.ProgramInfo
             End If
+
+            .KeyValid = True
         End With
 
         Timer1.Interval = 1000
+        Timer2.Interval = 60 * 60 * 1000
+        sysinfo.KeyValid = GetKeyState()
 
         PutOut("读取配置")
 #End Region
@@ -102,6 +106,8 @@ Public Class MDIParentMain
             Timer1.Start()
         End If
 
+        Timer2.Start()
+
         OutputInfo.Show()
     End Sub
 
@@ -111,6 +117,8 @@ Public Class MDIParentMain
 
     Private Sub MDIParentMain_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         ActiveMQServerStop()
+
+        NotifyIcon1.Visible = False
 
         System.Environment.Exit(0)
     End Sub
@@ -144,18 +152,22 @@ Public Class MDIParentMain
     Public Sub ActiveMQServerStart()
         PutOut("连接ActiveMQ")
 
-        MQFactory = New NMSConnectionFactory(sysinfo.Setting.MQSInfo.Url)
-        MQConnection = MQFactory.CreateConnection(sysinfo.Setting.MQSInfo.UserName, sysinfo.Setting.MQSInfo.Password)
-        MQConnection.ClientId = $"{My.Application.Info.Title}"
-        MQConnection.Start()
+        Try
+            MQFactory = New NMSConnectionFactory(sysinfo.Setting.MQSInfo.Url)
+            MQConnection = MQFactory.CreateConnection(sysinfo.Setting.MQSInfo.UserName, sysinfo.Setting.MQSInfo.Password)
+            MQConnection.ClientId = $"{My.Application.Info.Title}{Guid.NewGuid.ToString}"
+            MQConnection.Start()
 
-        MQSession = MQConnection.CreateSession(AcknowledgementMode.AutoAcknowledge)
+            MQSession = MQConnection.CreateSession(AcknowledgementMode.AutoAcknowledge)
 
-        Dim destRec As IDestination = MQSession.GetTopic(sysinfo.Setting.MQSInfo.ReceiveTopicTitle)
-        MQConsumer = MQSession.CreateConsumer(destRec)
+            Dim destRec As IDestination = MQSession.GetTopic(sysinfo.Setting.MQSInfo.ReceiveTopicTitle)
+            MQConsumer = MQSession.CreateConsumer(destRec)
 
-        Dim destSend As IDestination = MQSession.GetTopic(sysinfo.Setting.MQSInfo.SendTopicTitle)
-        MQProducer = MQSession.CreateProducer(destSend)
+            Dim destSend As IDestination = MQSession.GetTopic(sysinfo.Setting.MQSInfo.SendTopicTitle)
+            MQProducer = MQSession.CreateProducer(destSend)
+        Catch ex As Exception
+            PutOut(ex.Message)
+        End Try
 
         PutOut("连接成功")
 
@@ -268,10 +280,10 @@ Public Class MDIParentMain
                     Dim TmpFile As String = System.IO.Path.GetFileName(.img.url)
 
                     If Not System.IO.File.Exists($"./Tmp/{TmpFile}") Then
-                        PutOut($"下载素材1")
+                        PutOut($"下载图片")
                         My.Computer.Network.DownloadFile(.img.url, $"./Tmp/{TmpFile}")
                     ElseIf New System.IO.FileInfo($"./Tmp/{TmpFile}").Length = 0 Then
-                        PutOut($"下载素材2")
+                        PutOut($"下载 图片")
                         System.IO.File.Delete($"./Tmp/{TmpFile}")
                         My.Computer.Network.DownloadFile(.img.url, $"./Tmp/{TmpFile}")
                     End If
@@ -284,10 +296,10 @@ Public Class MDIParentMain
                     Dim TmpFile As String = System.IO.Path.GetFileName(.video.url)
 
                     If Not System.IO.File.Exists($"./Tmp/{TmpFile}") Then
-                        PutOut($"下载素材3")
+                        PutOut($"下载视频")
                         My.Computer.Network.DownloadFile(.video.url, $"./Tmp/{TmpFile}")
                     ElseIf New System.IO.FileInfo($"./Tmp/{TmpFile}").Length = 0 Then
-                        PutOut($"下载素材4")
+                        PutOut($"下载 视频")
                         System.IO.File.Delete($"./Tmp/{TmpFile}")
                         My.Computer.Network.DownloadFile(.video.url, $"./Tmp/{TmpFile}")
                     End If
@@ -544,19 +556,23 @@ Public Class MDIParentMain
     Public Sub MQGeneralResponse(ByVal CmdID As String, ByVal Result As String, ByVal Msg As String)
         PutOut("响应报文")
 
-        Dim tmpHiATMP As New HTGS1_8.HiATMP
-        With tmpHiATMP
-            .VMS = New List(Of HTGS1_8.VMSInfo) From {
-                New HTGS1_8.VMSInfo With {
-                .id = sysinfo.Setting.DeviceID,
-                .cmdid = CmdID,
-                .CMD = New HTGS1_8.CMDInfo With {
-                .RESULT = Result},
-                .MSG = Msg}
-            }
-        End With
+        Try
+            Dim tmpHiATMP As New HTGS1_8.HiATMP
+            With tmpHiATMP
+                .VMS = New List(Of HTGS1_8.VMSInfo) From {
+                    New HTGS1_8.VMSInfo With {
+                    .id = sysinfo.Setting.DeviceID,
+                    .cmdid = CmdID,
+                    .CMD = New HTGS1_8.CMDInfo With {
+                    .RESULT = If(sysinfo.KeyValid, Result, "1")},
+                    .MSG = If(sysinfo.KeyValid, Msg, "软件信息需更新")}
+                }
+            End With
 
-        MQProducer.Send(MQSession.CreateTextMessage(HTGS1_8.Bin2Xml(tmpHiATMP)))
+            MQProducer.Send(MQSession.CreateTextMessage(HTGS1_8.Bin2Xml(tmpHiATMP)))
+        Catch ex As Exception
+            PutOut("回复异常: " & ex.Message)
+        End Try
     End Sub
 #End Region
 
@@ -591,4 +607,17 @@ Public Class MDIParentMain
 #End Region
 #End Region
 #End Region
+
+#Region "密钥有效性检测"
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        sysinfo.KeyValid = GetKeyState()
+    End Sub
+#End Region
+
+    '#Region "输入激活码"
+    '    Private Sub 输入激活码ToolStripMenuItem_Click(sender As Object, e As EventArgs)
+    '        Dim tmpDialog As New RegisterDialog
+    '        tmpDialog.ShowDialog()
+    '    End Sub
+    '#End Region
 End Class

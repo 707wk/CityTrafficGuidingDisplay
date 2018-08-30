@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProgramInfo>
+  <MediaList>
+    <ITEM type="0" interval="5">
+      <text style="1" color="1" size="16" time="2012-03-14 16:11:01" font="宋体">谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    </text>
+    </ITEM>
+    <ITEM type="1" interval="5">
+      <img name="430105000000100009" url="ftp://FTPuser001:FTPuser001@192.168.56.2/j004.jpg" />
+    </ITEM>
+    <ITEM type="1" interval="5">
+      <img name="430105000000100009" url="ftp://FTPuser001:FTPuser001@192.168.56.2/j003.jpg" />
+    </ITEM>
+    <ITEM type="1" interval="5">
+      <img name="430105000000100009" url="ftp://FTPuser001:FTPuser001@192.168.56.2/j002.jpg" />
+    </ITEM>
+    <ITEM type="1" interval="5">
+      <img name="430105000000100009" url="ftp://FTPuser001:FTPuser001@192.168.56.2/j001.jpg" />
+    </ITEM>
+  </MediaList>
+  <MediaID>0</MediaID>
+  <MediaTime>0</MediaTime>
+  <OffScreen>0</OffScreen>
+</ProgramInfo>

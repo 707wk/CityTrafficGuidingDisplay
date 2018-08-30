@@ -31,6 +31,7 @@ Partial Class MDIParentMain
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,12 +47,12 @@ Partial Class MDIParentMain
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.退出ToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(101, 26)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(181, 48)
         '
         '退出ToolStripMenuItem
         '
         Me.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem"
-        Me.退出ToolStripMenuItem.Size = New System.Drawing.Size(100, 22)
+        Me.退出ToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.退出ToolStripMenuItem.Text = "退出"
         '
         'Timer1
@@ -85,6 +86,9 @@ Partial Class MDIParentMain
         Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(139, 77)
         Me.AxWindowsMediaPlayer1.TabIndex = 3
         '
+        'Timer2
+        '
+        '
         'MDIParentMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -117,4 +121,5 @@ Partial Class MDIParentMain
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
+    Friend WithEvents Timer2 As Timer
 End Class

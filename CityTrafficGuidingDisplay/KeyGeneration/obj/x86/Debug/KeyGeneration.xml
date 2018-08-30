@@ -1,0 +1,105 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+KeyGeneration
+</name>
+</assembly>
+<members>
+<member name="T:KeyGeneration.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:KeyGeneration.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:KeyGeneration.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:KeyGeneration.ModuleFunction.Xml2Key(System.String)">
+ <summary>
+ 字符串反列化
+ </summary>
+ <param name="XmlStr">不带BOM的UTF8编码字符串</param>
+ <returns></returns>
+</member>
+<member name="M:KeyGeneration.ModuleFunction.Key2Xml(KeyGeneration.ModuleStructure.KeyInfo)">
+ <summary>
+ 字符串序列化
+ </summary>
+ <param name="Value"></param>
+ <returns>生成不带BOM的UTF8编码字符串</returns>
+</member>
+<member name="M:KeyGeneration.ModuleFunction.EncryptDes(System.String,System.String,System.String)">
+ <summary>
+ 加密
+ </summary>
+</member>
+<member name="M:KeyGeneration.ModuleFunction.DecryptDes(System.String,System.String,System.String)">
+ <summary>
+ 解密
+ </summary>
+</member>
+<member name="T:KeyGeneration.ModuleStructure.KeyInfo">
+ <summary>
+ 密钥信息
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.AppName">
+ <summary>
+ 程序名
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.MachineCodeEnabled">
+ <summary>
+ 启用机器码
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.CPUID">
+ <summary>
+ cpu序列号
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.DiskDriveID">
+ <summary>
+ 硬盘名称
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.NetworkMAC">
+ <summary>
+ 网卡MAC
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.LastReadDate">
+ <summary>
+ 上次读取日期
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.LastCount">
+ <summary>
+ 总授权使用次数
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleStructure.KeyInfo.Count">
+ <summary>
+ 剩余次数(每天减1)
+ </summary>
+</member>
+<member name="T:KeyGeneration.ModuleStructure.SystemInfo">
+ <summary>
+ 系统配置
+ </summary>
+</member>
+<member name="F:KeyGeneration.ModuleVar.sysinfo">
+ <summary>
+ 系统配置变量
+ </summary>
+</member>
+</members>
+</doc>
