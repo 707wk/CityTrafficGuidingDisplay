@@ -6,10 +6,12 @@ Public Class OutputInfo
         Me.KeyPreview = True
 
         Timer1.Interval = 500
+        Timer2.Interval = 30 * 1000
     End Sub
 
     Private Sub OutputInfo_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Timer1.Start()
+        Timer2.Start()
     End Sub
 
     ''' <summary>
@@ -53,4 +55,24 @@ Public Class OutputInfo
             TextBox1.Text = TextBox1.Text.Remove(0, TextBox1.Text.IndexOf(vbCrLf) + 1)
         End If
     End Sub
+
+#Region "检测守护程序"
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
+        PutOut("检测守护程序")
+
+        Try
+            Dim ProcessList As Process() = System.Diagnostics.Process.GetProcessesByName("DaemonService")
+            If ProcessList.Length = 0 Then
+                Process.Start(".\DaemonService.exe")
+            End If
+
+            For Each j001 As Process In ProcessList
+                j001.Dispose()
+            Next
+        Catch ex As Exception
+            sysinfo.logger.LogThis(ex.Message, "检测守护程序", Wangk.Tools.LoggerModuleStructure.Loglevel.Level_WARN)
+        End Try
+    End Sub
+#End Region
+
 End Class
