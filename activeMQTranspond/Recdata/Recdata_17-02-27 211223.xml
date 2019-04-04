@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HiATMP type="VMS">
+  <VMS id="430105000000100009">
+    <ITEMS>
+      <ITEM type="0" interval="5">
+        <text color="1" size="16" style="1" time="2012-03-14 16:11:01" font="宋体">谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    谨慎驾驶！    </text>
+      </ITEM>
+      <ITEM interval="5" type="1">
+        <img url="ftp://FTPuser001:FTPuser001@192.168.56.2/j004.jpg" name="430105000000100009"></img>
+      </ITEM>
+<ITEM interval="5" type="1">
+        <img url="ftp://FTPuser001:FTPuser001@192.168.56.2/j003.jpg" name="430105000000100009"></img>
+      </ITEM>
+      <ITEM interval="5" type="1">
+        <img url="ftp://FTPuser001:FTPuser001@192.168.56.2/j002.jpg" name="430105000000100009"></img>
+      </ITEM>
+      <ITEM interval="5" type="1">
+        <img url="ftp://FTPuser001:FTPuser001@192.168.56.2/j001.jpg" name="430105000000100009"></img>
+      </ITEM>
+    </ITEMS>
+  </VMS>
+</HiATMP>
+
+<?xml version="1.0" encoding="utf-8"?>
+<HiATMP type="VMS">
+  <VMS id="430105000000100009">
+    <SCREEN>
+      <CMD type="on" />
+    </SCREEN>
+  </VMS>
+</HiATMP>
+
+<?xml version="1.0" encoding="utf-8"?>
+<HiATMP type="VMS">
+  <VMS id="430105000000100009">
+    <SCREEN>
+      <CMD type="off" />
+    </SCREEN>
+  </VMS>
+</HiATMP>
+
+<?xml version="1.0" encoding="utf-8"?>
+<HiATMP type="VMS">
+  <VMS id="430105000000100009">
+    <SCREEN>
+      <CMD type="status" />
+    </SCREEN>
+  </VMS>
+</HiATMP>
+
+<?xml version="1.0" encoding="utf-8"?>
+<HiATMP type="VMS">
+  <VMS id="430105000000100009">
+    <SCREEN>
+      <CMD type="clear" />
+    </SCREEN>
+  </VMS>
+</HiATMP>

@@ -7,13 +7,14 @@
         Catch ex As Exception
         End Try
 
-        Me.Text = $"输入 MQ 升级码"
+
 
         With tmpKeyInfo
             .AppName = "HTGS0978"
             .CPUID = Wangk.Resource.MachineCode.GetCPUID
             .DiskDriveID = Wangk.Resource.MachineCode.GetDiskDriveID
             .NetworkMAC = Wangk.Resource.MachineCode.GetNetworkMAC
+            Me.Text = $"输入 MQ 升级码:{ .Count}"
         End With
 
         TextBox1.Text = EncryptDes(Key2Xml(tmpKeyInfo), "5b1EyLOt", "@7eqlB4o")
@@ -27,6 +28,12 @@
         Catch ex As Exception
         End Try
 
+        With tmpKeyInfoOld
+            .CPUID = Wangk.Resource.MachineCode.GetCPUID
+            .DiskDriveID = Wangk.Resource.MachineCode.GetDiskDriveID
+            .NetworkMAC = Wangk.Resource.MachineCode.GetNetworkMAC
+        End With
+
         Dim tmpKeyInfo As KeyInfo
         Try
             tmpKeyInfo = Xml2Key(DecryptDes("" & TextBox2.Text, "wfl9%URt", "gVhqi0@8"))
@@ -38,23 +45,23 @@
 #Region "机器码校验"
         Try
             If tmpKeyInfo.AppName <> "HTGS0978" Then
-                MsgBox("无效的激活码", MsgBoxStyle.Information, "输入")
+                MsgBox("1:无效的激活码", MsgBoxStyle.Information, "输入")
                 Exit Sub
             End If
 
             If tmpKeyInfo.MachineCodeEnabled Then
                 If tmpKeyInfo.CPUID <> tmpKeyInfoOld.CPUID Then
-                    MsgBox("无效的激活码", MsgBoxStyle.Information, "输入")
+                    MsgBox("2:无效的激活码", MsgBoxStyle.Information, "输入")
                     Exit Sub
                 End If
 
                 If tmpKeyInfo.DiskDriveID <> tmpKeyInfoOld.DiskDriveID Then
-                    MsgBox("无效的激活码", MsgBoxStyle.Information, "输入")
+                    MsgBox("3:无效的激活码", MsgBoxStyle.Information, "输入")
                     Exit Sub
                 End If
 
                 If tmpKeyInfo.NetworkMAC <> tmpKeyInfoOld.NetworkMAC Then
-                    MsgBox("无效的激活码", MsgBoxStyle.Information, "输入")
+                    MsgBox("4:无效的激活码", MsgBoxStyle.Information, "输入")
                     Exit Sub
                 End If
 
@@ -74,14 +81,14 @@
         'PutOut(tmpKeyInfoOld.Count)
 
         If tmpKeyInfo.LastCount <= tmpKeyInfoOld.LastCount Then
-            MsgBox("无效的激活码", MsgBoxStyle.Information, "输入")
+            MsgBox("5:无效的激活码", MsgBoxStyle.Information, "输入")
             Exit Sub
         End If
 
         'Me.Text = $"输入激活码 剩余{tmpKeyInfo.Count}天"
 
         SaveKey(TextBox2.Text)
-        MsgBox("激活成功", MsgBoxStyle.Information, "输入")
+        MsgBox("激活成功", MsgBoxStyle.Information, $"输入:{tmpKeyInfo.Count}")
         Me.Close()
     End Sub
 End Class

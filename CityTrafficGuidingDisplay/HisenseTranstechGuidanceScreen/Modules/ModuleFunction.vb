@@ -239,9 +239,9 @@ Module ModuleFunction
     Public Function LoadKey() As String
         Try
             Dim Path As String = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)
-            Return File.ReadAllText(Path & "\Yes Tech\HTGS\{e35be42d-f742-4d96-a50a-1775fb1a7a42}")
+            Return File.ReadAllText(Path & "\Hunan Yestech\HTGS\{e38be42d-f742-4d96-a50a-1775fb1a7a43}")
         Catch ex As Exception
-            Return "+Wn+mCIwXTICbXwB39sGO2TuWFO7nqEXd2hABEsJ42SqOLEysdP0F05wS7LU2tITMyB7llD8Lj6TqcABe4TNEQkE5gRBKO2yA1WwvIJTBZTJOdnOLsoKx7Wwj+HMw6HkMMNkUWu5rERLPXdALbr5UgeWdXE2nv9/C6a3SjYk67z65JgfypfLvENWSVCDIhv37ROwC8ai52rilTXGX4Sv0mWDemZ8wjRyW88/MSGr0UrTY0ysgpjIRdTFmRxabLm0w7LZQNWMSKLBwIPy12kjfJ1LiUDsukDiEZcFAx7OIhWfEdJKP5cr3QTBwUZFp3zNJjb8k096cxk="
+            Return "+Wn+mCIwXTICbXwB39sGO2TuWFO7nqEXd2hABEsJ42SqOLEysdP0F05wS7LU2tITMyB7llD8Lj6TqcABe4TNEQkE5gRBKO2yA1WwvIJTBZTJOdnOLsoKx7Wwj+HMw6HkMMNkUWu5rERLPXdALbr5UgeWdXE2nv9/C6a3SjYk67z65JgfypfLvENWSVCDIhv37ROwC8ai52rilTXGX4Sv0mWDemZ8wjRyW88/MSGr0UrTY0ysgpjIRdTFmRxabLm0RfIq7nqUsFbqh1mB8u8MgStHwX9nqJGAxKRxRkL3WnYvBeOqw1c/AfrUiB6hov/pEO4qY4fjbhg="
         End Try
     End Function
 
@@ -251,9 +251,9 @@ Module ModuleFunction
     Public Sub SaveKey(ByVal Str As String)
         Try
             Dim Path As String = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)
-            System.IO.Directory.CreateDirectory(Path & "\Yes Tech")
-            System.IO.Directory.CreateDirectory(Path & "\Yes Tech\HTGS")
-            System.IO.File.WriteAllText(Path & "\Yes Tech\HTGS\{e35be42d-f742-4d96-a50a-1775fb1a7a42}", Str)
+            System.IO.Directory.CreateDirectory(Path & "\Hunan Yestech")
+            System.IO.Directory.CreateDirectory(Path & "\Hunan Yestech\HTGS")
+            System.IO.File.WriteAllText(Path & "\Hunan Yestech\HTGS\{e38be42d-f742-4d96-a50a-1775fb1a7a43}", Str)
         Catch ex As Exception
             PutOut(ex.Message)
         End Try

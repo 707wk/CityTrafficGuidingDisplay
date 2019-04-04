@@ -67,7 +67,7 @@ Partial Class OutputInfo
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(47, 12)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "V 2.0.1"
+        Me.Label1.Text = "V 2.0.2"
         '
         'Timer2
         '

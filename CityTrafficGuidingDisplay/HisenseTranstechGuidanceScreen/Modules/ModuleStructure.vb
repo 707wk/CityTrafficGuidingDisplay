@@ -1,5 +1,4 @@
 ﻿Imports System.Xml.Serialization
-Imports Nova.Mars.SDK
 
 Public Module ModuleStructure
 #Region "窗体信息"

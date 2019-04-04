@@ -1,0 +1,6 @@
+cshiatmp
+cshiatmp
+failover:(tcp://43.5.18.2:61616,tcp://43.5.18.3:61616)?randomize=false
+failover:(tcp://127.0.0.1:61616,tcp://127.0.0.1:61616)?randomize=false
+HIATMP.HISENSE.VMS.NEWVMSPUB
+HIATMP.HISENSE.VMS.NEWVMSPUBBAK

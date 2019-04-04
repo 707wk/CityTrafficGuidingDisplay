@@ -5,6 +5,7 @@
             tmpKeyInfo = Xml2Key(DecryptDes(TextBox2.Text, "5b1EyLOt", "@7eqlB4o"))
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Information, "机器码")
+            Exit Sub
         End Try
 
         With tmpKeyInfo
