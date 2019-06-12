@@ -59,12 +59,13 @@ Section "MainSection" SEC01
   File "HisenseTranstechGuidanceScreen\bin\HisenseTranstechGuidanceScreen.exe"
   File "HisenseTranstechGuidanceScreen\bin\DaemonService.exe.config"
   File "HisenseTranstechGuidanceScreen\bin\DaemonService.exe"
-  SetOutPath "$INSTDIR\Data"
-  File "HisenseTranstechGuidanceScreen\bin\Data\Setting.xml"
   SetOutPath "$INSTDIR\DLL"
   File /r "HisenseTranstechGuidanceScreen\bin\DLL\*.*"
   SetOutPath "$INSTDIR\Tmp"
   File /r "HisenseTranstechGuidanceScreen\bin\Tmp\*.*"
+  SetOutPath "$INSTDIR\Data"
+  SetOverwrite off
+  File "HisenseTranstechGuidanceScreen\bin\Data\Setting.xml"
 SectionEnd
 
 Section -AdditionalIcons
