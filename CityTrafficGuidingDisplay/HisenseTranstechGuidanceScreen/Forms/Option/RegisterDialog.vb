@@ -21,7 +21,7 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim tmpKeyInfoOld As KeyInfo
+        Dim tmpKeyInfoOld As New KeyInfo
         Dim KeyStr As String = LoadKey()
         Try
             tmpKeyInfoOld = Xml2Key(DecryptDes("" & KeyStr, "wfl9%URt", "gVhqi0@8"))

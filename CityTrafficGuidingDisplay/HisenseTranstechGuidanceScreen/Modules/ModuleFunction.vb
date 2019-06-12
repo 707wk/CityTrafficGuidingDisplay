@@ -239,9 +239,9 @@ Module ModuleFunction
     Public Function LoadKey() As String
         Try
             Dim Path As String = System.Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData)
-            Return File.ReadAllText(Path & "\Hunan Yestech\HTGS\{e38be42d-f742-4d96-a50a-1775fb1a7a43}")
+            Return File.ReadAllText(Path & "\Hunan Yestech\HTGS\{e38be42d-f742-4d96-a51a-1775fb1a7a43}")
         Catch ex As Exception
-            Return "+Wn+mCIwXTICbXwB39sGO2TuWFO7nqEXd2hABEsJ42SqOLEysdP0F05wS7LU2tITMyB7llD8Lj6TqcABe4TNEQkE5gRBKO2yA1WwvIJTBZTJOdnOLsoKx7Wwj+HMw6HkMMNkUWu5rERLPXdALbr5UgeWdXE2nv9/C6a3SjYk67z65JgfypfLvENWSVCDIhv37ROwC8ai52rilTXGX4Sv0mWDemZ8wjRyW88/MSGr0UrTY0ysgpjIRdTFmRxabLm0RfIq7nqUsFbqh1mB8u8MgStHwX9nqJGAxKRxRkL3WnYvBeOqw1c/AfrUiB6hov/pEO4qY4fjbhg="
+            Return "+Wn+mCIwXTICbXwB39sGO2TuWFO7nqEXd2hABEsJ42SqOLEysdP0F05wS7LU2tITMyB7llD8Lj6TqcABe4TNEQkE5gRBKO2yA1WwvIJTBZTJOdnOLsoKx7Wwj+HMw6HkMMNkUWu5rERLPXdALbr5UgeWdXE2nv9/C6a3SjYk67z65JgfypfLvENWSVCDIhv37ROwC8ai52rilTXGX4Sv0mWDemZ8wjRyW88/MSGr0UrTY0ysgpjIRdTFmRxabLm0QqfleTCfyI3KG3obg7zTCFQ5uVGQ1xZ7FQFXOG7jQq09vtsysiQz1hYMtm2w1Xfl1ocBtyrs4+4="
         End Try
     End Function
 

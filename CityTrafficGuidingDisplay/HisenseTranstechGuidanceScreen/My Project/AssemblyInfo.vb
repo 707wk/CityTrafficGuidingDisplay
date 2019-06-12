@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("海信网络科技交通诱导屏")>
 <Assembly: AssemblyCompany("Hunan Yestech Optoelectronic Co., LTD.")>
 <Assembly: AssemblyProduct("Hisense Transtech Guidance Screen")>
-<Assembly: AssemblyCopyright("Copyright ©  2018 Yestech All Rights Reserved")>
+<Assembly: AssemblyCopyright("Copyright ©  2019 Yestech All Rights Reserved")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' 方法是按如下所示使用“*”: :
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.1.0")>
-<Assembly: AssemblyFileVersion("1.0.1.0")>
+<Assembly: AssemblyVersion("2.0.3.0")>
+<Assembly: AssemblyFileVersion("2.0.3.0")>

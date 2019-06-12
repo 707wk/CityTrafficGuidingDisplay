@@ -5,6 +5,10 @@ Public Class OutputInfo
         Me.Text = My.Application.Info.Description & " 日志输出"
         Me.KeyPreview = True
 
+        With My.Application.Info
+            Label1.Text = $"V{ .Version.Major}.{ .Version.Minor}.{ .Version.Build}"
+        End With
+
         Timer1.Interval = 500
         Timer2.Interval = 30 * 1000
     End Sub
